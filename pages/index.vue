@@ -5,6 +5,8 @@
   </div>
 </template>
 
+
+
 <script>
 import NavBar from "@/components/NavBar";
 import VideoPlayer from "@/components/VideoPlayer";

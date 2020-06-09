@@ -23,7 +23,8 @@ export default {
   ** Global CSS
   */
   css: [
-    'video.js/dist/video-js.css'
+    'video.js/dist/video-js.css',
+    'vue-video-player/src/custom-theme.css'
   ],
   /*
   ** Plugins to load before mounting the App
