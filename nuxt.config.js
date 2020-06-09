@@ -23,11 +23,12 @@ export default {
   ** Global CSS
   */
   css: [
+    'video.js/dist/video-js.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
+  plugins: [{ src: '~plugins/index.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -43,6 +44,9 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],
+  bootstrapVue: {
+    icons: true // Install the IconsPlugin (in addition to BootStrapVue plugin
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -56,7 +60,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
