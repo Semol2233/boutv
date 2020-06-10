@@ -107,7 +107,7 @@ export default {
           {
             type: "rtmp/mp4",
             // Change the rtmp Source Url
-            src: "rtmp://184.72.239.149/vod/&mp4:BigBuckBunny_115k.mov"
+            src: "rtmp://fms.105.net/live/rmc1"
           },
           {
             withCredentials: false,

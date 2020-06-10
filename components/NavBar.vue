@@ -1,19 +1,21 @@
 <template>
   <div>
-    <b-navbar class="mb-4" toggleable="lg" type="dark" variant="dark">
+    <b-navbar class="mb-2" toggleable="lg" type="dark" variant="dark">
       <b-container>
-        <b-navbar-brand href="#"
-          >VouTv
-          <!-- <b-img :src="require('~/static/favicon.ico')"></b-img> -->
+        <b-navbar-brand href="#">
+          <b-img
+            style="height:50px;"
+            :src="require('~/static/brand.jpeg')"
+          ></b-img>
         </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item href="#">Link 1</b-nav-item>
-            <b-nav-item href="#">Link 2</b-nav-item>
-            <b-nav-item href="#">Link 3</b-nav-item>
-            <b-nav-item href="#">Link 4</b-nav-item>
-            <b-nav-item href="#">Link 5</b-nav-item>
+            <b-nav-item href="#">Authority</b-nav-item>
+            <b-nav-item href="#">Results</b-nav-item>
+            <b-nav-item href="#">Academic Info</b-nav-item>
+            <b-nav-item href="#">News/Notice</b-nav-item>
+            <b-nav-item href="#">Schools</b-nav-item>
           </b-navbar-nav>
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
