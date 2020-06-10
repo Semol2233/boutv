@@ -2,7 +2,9 @@
   <div>
     <NavBar />
     <Carousel />
-    <VideoPlayer />
+    <client-only>
+      <VideoPlayer />
+    </client-only>
   </div>
 </template>
 

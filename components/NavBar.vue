@@ -15,37 +15,45 @@
         </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav v-if="!showInputbar">
-            <b-nav-item active href="#">বাংলাদেশ</b-nav-item>
-            <b-nav-item active href="#">বিশ্ব</b-nav-item>
-            <b-nav-item active href="#">খেলাধুলা</b-nav-item>
-            <b-nav-item active href="#">বিনোদন</b-nav-item>
-            <b-nav-item active href="#">ছবি</b-nav-item>
-            <b-nav-item active href="#">ভিডিও</b-nav-item>
+          <b-navbar-nav  v-if="!showInputbar">
+            <b-nav-item class="nav-item-one" active href="#"
+              >বাংলাদেশ</b-nav-item
+            >
+            <b-nav-item class="nav-item-two" active href="#">বিশ্ব</b-nav-item>
+            <b-nav-item class="nav-item-three" active href="#"
+              >খেলাধুলা</b-nav-item
+            >
+            <b-nav-item class="nav-item-four" active href="#"
+              >বিনোদন</b-nav-item
+            >
+            <b-nav-item class="nav-item-five" active href="#">ছবি</b-nav-item>
+            <b-nav-item class="nav-item-six" active href="#">ভিডিও</b-nav-item>
           </b-navbar-nav>
-          <div v-else class="shadow-sm w-100">
-            <b-input-group>
-              <b-form-input></b-form-input>
-              <b-input-group-append>
-                <b-button variant="dark" size="md">
-                  Search
-                </b-button>
-              </b-input-group-append>
-            </b-input-group>
+          <div v-else class="nav-s-block">
+            <div class="search" id="searchb" style="display: block;">
+              <input
+                autocomplete="on"
+                type="text"
+                placeholder="Search on Voutv..."
+                class="input-search"
+              />
+              <button type="submit" class="searchButton">Search</button>
+            </div>
           </div>
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-form>
-              <b-button
+            <b-nav-form style="cursor:pointer;">
+              <b-icon
                 v-if="!showInputbar"
                 @click="showInput"
-                variant="light"
-                size="md"
-                ><b-icon icon="search"></b-icon
-              ></b-button>
-              <b-button v-else variant="light" size="md" @click="showNavItem"
-                ><b-icon icon="x" variant="dark"></b-icon
-              ></b-button>
+                icon="search"
+              ></b-icon>
+              <b-icon
+                v-else
+                icon="x"
+                @click="showNavItem"
+                variant="dark"
+              ></b-icon>
             </b-nav-form>
           </b-navbar-nav>
         </b-collapse>
@@ -73,6 +81,76 @@ export default {
 </script>
 
 <style>
+.search {
+  animation: fadeInRight; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s; /* don't forget to set a duration! */
+}
+
+.nav-item-one :hover {
+  border-bottom: 3px solid rgb(77, 178, 236);
+}
+.nav-item-two :hover {
+  border-bottom: 3px solid rgb(77, 178, 236);
+}
+
+.nav-item-three :hover {
+  border-bottom: 3px solid rgb(77, 178, 236);
+}
+
+.nav-item-four :hover {
+  border-bottom: 3px solid rgb(77, 178, 236);
+}
+
+.nav-item-five :hover {
+  border-bottom: 3px solid rgb(77, 178, 236);
+}
+
+.nav-item-six :hover {
+  border-bottom: 3px solid rgb(77, 178, 236);
+}
+
+.nav-s-block {
+  width: 92%;
+  float: left;
+  padding: 0 10px;
+  height: 55px;
+  position: relative;
+}
+.search {
+  width: 100%;
+  position: relative;
+  display: none;
+  margin-top: 5px;
+}
+.input-search {
+  float: left;
+  width: 100%;
+  outline: none;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 10px;
+  z-index: 1;
+  box-sizing: border-box;
+  font-size: 16px;
+  background: #e6e1e1;
+  outline: none;
+  color: black;
+  height: 45px;
+}
+.searchButton {
+  position: absolute;
+  right: 0;
+  width: 80px;
+  height: 45px;
+  background: #e6e1e1;
+  text-align: center;
+  color: black;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  border: 0;
+  outline: none;
+}
 @media (min-width: 575.98px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
   .my-custom-nav {
     height: 60px;
