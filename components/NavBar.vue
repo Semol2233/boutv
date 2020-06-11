@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <b-navbar
-      class="shadow my-custom-nav"
+      class=" my-custom-nav"
       toggleable="sm"
       type="light"
       style="background-color:white;"
@@ -19,7 +19,7 @@
           id="sidebar-backdrop"
           backdrop
           shadow
-          :backdrop-variant="light"
+          backdrop-variant="light"
         >
           <div class="px-3 py-2">
             <b-navbar-nav class="ml-auto" v-if="!showInputbar">
@@ -70,25 +70,24 @@
             </b-navbar-nav>
           </div>
         </b-sidebar>
-
         <b-collapse id="nav-collapse sidebar-backdrop" is-nav>
           <b-navbar-nav class="ml-auto" v-if="!showInputbar">
-            <b-nav-item class="nav-item-one mr-3 p-2" active href="#"
+            <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
               >বাংলাদেশ</b-nav-item
             >
-            <b-nav-item class="nav-item-two mr-3 p-2" active href="#"
+            <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
               >বিশ্ব</b-nav-item
             >
-            <b-nav-item class="nav-item-three mr-3 p-2" active href="#"
+            <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
               >খেলাধুলা</b-nav-item
             >
-            <b-nav-item class="nav-item-four mr-3 p-2" active href="#"
+            <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
               >বিনোদন</b-nav-item
             >
-            <b-nav-item class="nav-item-five mr-3 p-2" active href="#"
+            <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
               >ছবি</b-nav-item
             >
-            <b-nav-item class="nav-item-six mr-3 p-2" active href="#"
+            <b-nav-item class="nav-item-six mr-2 p-1" active href="#"
               >ভিডিও</b-nav-item
             >
           </b-navbar-nav>
@@ -198,7 +197,9 @@ export default {
 }
 
 .my-custom-nav {
-  font-size: 19px;
+  font-size: 16px;
+  box-shadow: 0 5px 0.9rem -0.8rem rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 @media (max-width: 785px) {
   .header {

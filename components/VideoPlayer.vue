@@ -1,6 +1,5 @@
 <template>
   <div class="liveView">
-    <!-- <b-container> -->
     <video-player
       class="vjs-custom-skin"
       ref="videoPlayer"
@@ -9,68 +8,6 @@
       @timeupdate="onTimeupdate"
     >
     </video-player>
-    <!-- <div class="selectWrapper">
-      Switch Tech：
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="tech"
-          id="html5"
-          value="Html5"
-          v-model="currentTech"
-          @change="changeTech"
-        />
-        <label class="form-check-label" for="html5">
-          Html5
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="tech"
-          id="flash"
-          value="Flash"
-          v-model="currentTech"
-          @change="changeTech"
-        />
-        <label class="form-check-label" for="flash">
-          Flash
-        </label>
-      </div>
-    </div> -->
-    <!-- <div class="inputWrapper">
-        <div class="form-group row" v-if="currentStream === 'RTMP'">
-          <label class="col-sm-4 col-form-label">RTMP: </label>
-          <div class="col-sm-8">
-            <input
-              class="form-control"
-              type="text"
-              placeholder="RTMP url here"
-              v-model="streams.rtmp"
-            />
-          </div>
-        </div>
-        <div class="form-group row" v-else>
-          <label for="" class="col-sm-4 col-form-label">HLS: </label>
-          <div class="col-sm-8">
-            <input
-              class="form-control"
-              type="text"
-              placeholder="HLS url here"
-              v-model="streams.hls"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="buttonWrapper">
-        <button class="btn btn-primary" type="button" @click="enterStream">
-          Apply
-        </button>
-      </div> -->
-    <!-- </b-container> -->
-    <!-- <Switcher></Switcher> -->
   </div>
 </template>
 
@@ -85,54 +22,28 @@ export default {
   data() {
     return {
       initialized: false,
-      currentTech: "",
-      streams: {
-        rtmp: "",
-        hls: ""
-      },
       playerOptions: {
-        overNative: true,
         autoplay: false,
         controls: true,
         techOrder: ["flash", "html5"],
         sourceOrder: true,
-        flash: {
-          hls: { withCredentials: false },
-          swf: isProduction
-            ? "~/voutv/static/video-js.swf"
-            : "~/static/video-js.swf"
-        },
+        flash: { hls: { withCredentials: false } },
         html5: { hls: { withCredentials: false } },
         sources: [
-          {
-            type: "rtmp/mp4",
-            // Change the rtmp Source Url
-            src: "rtmp://fms.105.net/live/rmc1"
-          },
           {
             withCredentials: false,
             type: "application/x-mpegURL",
             src:
-              "http://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8"
+              "https://edge4.bioscopelive.com/hls/anonymous/AIhZrBoM1TWyBXI8jhbKYw/1591898772/shomoy_tv_hi/index.m3u8"
           }
         ],
-        poster: isProduction ? "~/voutv/static/logo.png" : "~/static/logo.png"
-        // controlBar: {
-        //   timeDivider: false, // 时间分割线
-        //   durationDisplay: false, // 总时间
-        //   progressControl: true, // 进度条
-        //   customControlSpacer: true, // 未知
-        //   fullscreenToggle: true // 全屏
-        // },
+        poster: "~/static/brand.png"
       }
     };
   },
   computed: {
     player() {
       return this.$refs.videoPlayer.player;
-    },
-    currentStream() {
-      return this.currentTech === "Flash" ? "RTMP" : "HLS";
     }
   },
   methods: {
@@ -145,19 +56,6 @@ export default {
     // record current time
     onTimeupdate(e) {
       // console.log("currentTime", e.cache_.currentTime);
-    },
-    enterStream() {
-      this.playerOptions.sources[1].src = this.streams.hls;
-      this.playerOptions.sources[0].src = this.streams.rtmp;
-      this.playerOptions.autoplay = true;
-    },
-    changeTech() {
-      if (this.currentTech === "Html5") {
-        this.playerOptions.techOrder = ["html5"];
-      } else if (this.currentTech === "Flash") {
-        this.playerOptions.techOrder = ["flash"];
-      }
-      this.playerOptions.autoplay = true;
     }
   }
 };

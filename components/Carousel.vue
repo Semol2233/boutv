@@ -9,14 +9,26 @@
         indicators
         background="#ababab"
         img-width="1024"
-        img-height="430"
+        img-height="317"
         style="text-shadow: 1px 1px 2px #333;"
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
       >
-        <b-carousel-slide img-blank img-alt="Blank image"> </b-carousel-slide>
-        <b-carousel-slide img-blank img-alt="Blank image"> </b-carousel-slide>
-        <b-carousel-slide img-blank img-alt="Blank image"> </b-carousel-slide>
+        <b-carousel-slide
+          img-src="https://picsum.photos/1024/480/?image=52"
+          img-alt="Blank image"
+        >
+        </b-carousel-slide>
+        <b-carousel-slide
+          img-src="https://picsum.photos/1024/480/?image=54"
+          img-alt="Blank image"
+        >
+        </b-carousel-slide>
+        <b-carousel-slide
+          img-src="https://picsum.photos/1024/480/?image=58"
+          img-alt="Blank image"
+        >
+        </b-carousel-slide>
       </b-carousel>
     </b-container>
   </div>
