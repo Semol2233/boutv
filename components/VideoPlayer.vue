@@ -1,15 +1,15 @@
 <template>
   <div class="liveView">
-    <b-container>
-      <video-player
-        class="vjs-custom-skin"
-        ref="videoPlayer"
-        :options="playerOptions"
-        @ready="onPlayerReadied"
-        @timeupdate="onTimeupdate"
-      >
-      </video-player>
-      <!-- <div class="selectWrapper">
+    <!-- <b-container> -->
+    <video-player
+      class="vjs-custom-skin"
+      ref="videoPlayer"
+      :options="playerOptions"
+      @ready="onPlayerReadied"
+      @timeupdate="onTimeupdate"
+    >
+    </video-player>
+    <!-- <div class="selectWrapper">
       Switch Tech：
       <div class="form-check">
         <input
@@ -40,7 +40,7 @@
         </label>
       </div>
     </div> -->
-      <div class="inputWrapper">
+    <!-- <div class="inputWrapper">
         <div class="form-group row" v-if="currentStream === 'RTMP'">
           <label class="col-sm-4 col-form-label">RTMP: </label>
           <div class="col-sm-8">
@@ -68,8 +68,8 @@
         <button class="btn btn-primary" type="button" @click="enterStream">
           Apply
         </button>
-      </div>
-    </b-container>
+      </div> -->
+    <!-- </b-container> -->
     <!-- <Switcher></Switcher> -->
   </div>
 </template>
@@ -182,5 +182,7 @@ export default {
 }
 .buttonWrapper {
   text-align: center;
+}
+.vjs-custom-skin {
 }
 </style>

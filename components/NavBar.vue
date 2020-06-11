@@ -4,7 +4,7 @@
       class="shadow my-custom-nav"
       toggleable="sm"
       type="light"
-      variant="light"
+      style="background-color:white;"
       fixed="top"
     >
       <b-container>
@@ -73,18 +73,24 @@
 
         <b-collapse id="nav-collapse sidebar-backdrop" is-nav>
           <b-navbar-nav class="ml-auto" v-if="!showInputbar">
-            <b-nav-item class="nav-item-one" active href="#"
+            <b-nav-item class="nav-item-one mr-3 p-2" active href="#"
               >বাংলাদেশ</b-nav-item
             >
-            <b-nav-item class="nav-item-two" active href="#">বিশ্ব</b-nav-item>
-            <b-nav-item class="nav-item-three" active href="#"
+            <b-nav-item class="nav-item-two mr-3 p-2" active href="#"
+              >বিশ্ব</b-nav-item
+            >
+            <b-nav-item class="nav-item-three mr-3 p-2" active href="#"
               >খেলাধুলা</b-nav-item
             >
-            <b-nav-item class="nav-item-four" active href="#"
+            <b-nav-item class="nav-item-four mr-3 p-2" active href="#"
               >বিনোদন</b-nav-item
             >
-            <b-nav-item class="nav-item-five" active href="#">ছবি</b-nav-item>
-            <b-nav-item class="nav-item-six" active href="#">ভিডিও</b-nav-item>
+            <b-nav-item class="nav-item-five mr-3 p-2" active href="#"
+              >ছবি</b-nav-item
+            >
+            <b-nav-item class="nav-item-six mr-3 p-2" active href="#"
+              >ভিডিও</b-nav-item
+            >
           </b-navbar-nav>
           <div v-else class="nav-s-block">
             <div class="search" id="searchb" style="display: block;">
@@ -164,7 +170,7 @@ export default {
   float: left;
   width: 100%;
   outline: none;
-  border: 0;
+  border: 1px 1px 0px 1px solid black;
   border-radius: 6px;
   padding: 0 10px;
   z-index: 1;
@@ -176,10 +182,11 @@ export default {
   height: 45px;
 }
 .searchButton {
+  margin-top: 2px;
   position: absolute;
-  right: 0;
-  width: 80px;
-  height: 45px;
+  right: 1px;
+  width: 85px;
+  height: 42px;
   background: #ffffff;
   text-align: center;
   color: black;

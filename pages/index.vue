@@ -2,9 +2,153 @@
   <div>
     <NavBar />
     <Carousel />
-    <client-only>
-      <VideoPlayer />
-    </client-only>
+    <b-container>
+      <b-row class="mb-4" no-gutters>
+        <b-col class="p-1" cols="12" sm="12" md="6" lg="6" xl="6">
+          <client-only>
+            <VideoPlayer />
+          </client-only>
+        </b-col>
+        <b-col class="pl-1 pt-1 pb-1" cols="12" sm="12" md="6" lg="6" xl="6">
+          <b-row>
+            <b-col cols="12" sm="12" md="12" lg="12" xl="12">
+              <div>
+                <b-card
+                  overlay
+                  img-src="https://picsum.photos/900/250/?image=3"
+                  img-alt="Card Image"
+                  text-variant="white"
+                  title=""
+                  sub-title=""
+                  img-height="180"
+                >
+                  <b-card-text style="margin-top:90px;">
+                    Some quick example text to build on the card and make up the
+                    bulk of the card's content.
+                  </b-card-text>
+                </b-card>
+              </div>
+            </b-col>
+          </b-row>
+          <b-row no-gutters>
+            <b-col
+              class="pl-0 pr-0 pt-1"
+              v-for="i in 2"
+              :key="i"
+              cols="12"
+              sm="12"
+              md="6"
+              lg="6"
+              xl="6"
+            >
+              <div>
+                <b-card
+                  overlay
+                  img-src="https://picsum.photos/900/250/?image=3"
+                  img-alt="Card Image"
+                  text-variant="white"
+                  title=""
+                  sub-title=""
+                  img-height="174"
+                >
+                  <b-card-text style="margin-top:90px;">
+                    Some quick example text to build on the card and make up.
+                  </b-card-text>
+                </b-card>
+              </div></b-col
+            >
+          </b-row>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+          <b-card no-body>
+            <b-card-img
+              src="https://placekitten.com/1000/300"
+              alt="Card image"
+              height="170"
+            ></b-card-img>
+          </b-card>
+          <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+          <h5 class="">
+            <strong
+              >Game Changing Virtual Reality Console Hits the Market</strong
+            >
+          </h5>
+        </b-col>
+        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+          <div class="latest-home-card">
+            <div>
+              <b-list-group>
+                <b-list-group-item
+                  class="custom-list-item"
+                  v-for="i in 4"
+                  :key="i"
+                >
+                  <div class="d-flex">
+                    <div>
+                      <b-img-lazy
+                        class="custom-latest-image"
+                        :src="require('~/static/brand.png')"
+                        alt="Image 1"
+                      ></b-img-lazy>
+                    </div>
+                    <div class="custom-latest-text">
+                      This is a sample title for latest div.This will show on
+                      right
+                      <p class="mt-4 text-muted">2012-7-90</p>
+                    </div>
+                  </div>
+                </b-list-group-item>
+              </b-list-group>
+            </div>
+          </div>
+        </b-col>
+        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+          <b-card no-body>
+            <b-card-img
+              src="https://placekitten.com/1000/300"
+              alt="Card image"
+              height="170"
+            ></b-card-img>
+
+            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+            <h5 class="pb-2 pr-2">
+              <strong
+                >Laptop with 128-bit Processor, 32GB of RAM and 24MP Front
+                Camera</strong
+              >
+            </h5>
+          </b-card>
+          <div class="latest-home-card mt-4">
+            <div>
+              <b-list-group>
+                <b-list-group-item
+                  class="custom-list-item"
+                  v-for="i in 2"
+                  :key="i"
+                >
+                  <div class="d-flex">
+                    <div>
+                      <b-img-lazy
+                        class="custom-latest-image"
+                        :src="require('~/static/brand.png')"
+                        alt="Image 1"
+                      ></b-img-lazy>
+                    </div>
+                    <div class="custom-latest-text">
+                      This is a sample title for latest div.This will show on
+                      right
+                      <p class="mt-4 text-muted">2012-7-90</p>
+                    </div>
+                  </div>
+                </b-list-group-item>
+              </b-list-group>
+            </div>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -21,5 +165,39 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
+.latest-home-card {
+  background: #ffff;
+  /* box-shadow: 0 5px 0.9rem -0.8rem rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  border-radius: 5px; */
+}
+.custom-latest-title {
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  font-size: 20px;
+  color: rgb(20, 23, 24);
+  padding: 0 12px;
+  border-bottom: 1px solid #eee;
+}
+.custom-list-item {
+  border: none !important;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.custom-latest-image {
+  width: 80px;
+  height: 80px;
+  left: 10px;
+  top: 10px;
+}
+.custom-latest-text {
+  margin-left: 20px;
+  margin-top: 10px;
+  text-align: left;
+  line-height: 20px;
+  font-size: 14px;
+}
 </style>
