@@ -1,5 +1,5 @@
 <template>
-  <div class="myCarousel mt-2 mb-2">
+  <div class="myCarousel mb-2">
     <b-container>
       <b-carousel
         id="carousel-1"
@@ -43,6 +43,11 @@ export default {
 </script>
 
 <style scoped>
+/* @media (min-width: 400px) {
+  .myCarousel {
+    margin-top: 70px !important;
+  }
+} */
 /* .myCarousel {
   margin-top: 70px !important;
 } */
@@ -51,11 +56,7 @@ export default {
     margin-top: 70px !important;
   }
 }
-@media (max-width: 575.98px) {
-  .myCarousel {
-    margin-top: 70px !important;
-  }
-}
+
 @media (min-width: 786px) {
   .myCarousel {
     margin-top: 70px !important;

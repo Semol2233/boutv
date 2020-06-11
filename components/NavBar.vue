@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div class="header">
     <b-navbar
-      class="shadow-sm my-custom-nav"
+      class="shadow my-custom-nav"
       toggleable="sm"
       type="light"
       variant="light"
+      fixed="top"
     >
       <b-container>
         <b-navbar-brand href="#">
@@ -13,9 +14,65 @@
             :src="require('~/static/brand.png')"
           ></b-img>
         </b-navbar-brand>
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav v-if="!showInputbar">
+        <b-navbar-toggle target="sidebar-backdrop"></b-navbar-toggle>
+        <b-sidebar
+          id="sidebar-backdrop"
+          backdrop
+          shadow
+          :backdrop-variant="light"
+        >
+          <div class="px-3 py-2">
+            <b-navbar-nav class="ml-auto" v-if="!showInputbar">
+              <b-nav-item class="nav-item-one" active href="#"
+                >বাংলাদেশ</b-nav-item
+              >
+              <b-nav-item class="nav-item-two" active href="#"
+                >বিশ্ব</b-nav-item
+              >
+              <b-nav-item class="nav-item-three" active href="#"
+                >খেলাধুলা</b-nav-item
+              >
+              <b-nav-item class="nav-item-four" active href="#"
+                >বিনোদন</b-nav-item
+              >
+              <b-nav-item class="nav-item-five" active href="#">ছবি</b-nav-item>
+              <b-nav-item class="nav-item-six" active href="#"
+                >ভিডিও</b-nav-item
+              >
+            </b-navbar-nav>
+            <div v-else class="nav-s-block">
+              <div class="search" id="searchb" style="display: block;">
+                <b-input
+                  autocomplete="on"
+                  type="text"
+                  placeholder="Search on Voutv..."
+                  class="input-search"
+                ></b-input>
+                <button type="submit" class="searchButton">Search</button>
+              </div>
+            </div>
+            <!-- Right aligned nav items -->
+            <b-navbar-nav>
+              <b-nav-form class="mt-3" style="cursor:pointer;">
+                <b-icon
+                  v-if="!showInputbar"
+                  @click="showInput"
+                  icon="search"
+                ></b-icon>
+                <b-icon
+                  v-else
+                  scale="2"
+                  icon="x"
+                  @click="showNavItem"
+                  variant="dark"
+                ></b-icon>
+              </b-nav-form>
+            </b-navbar-nav>
+          </div>
+        </b-sidebar>
+
+        <b-collapse id="nav-collapse sidebar-backdrop" is-nav>
+          <b-navbar-nav class="ml-auto" v-if="!showInputbar">
             <b-nav-item class="nav-item-one" active href="#"
               >বাংলাদেশ</b-nav-item
             >
@@ -31,17 +88,17 @@
           </b-navbar-nav>
           <div v-else class="nav-s-block">
             <div class="search" id="searchb" style="display: block;">
-              <input
+              <b-input
                 autocomplete="on"
                 type="text"
                 placeholder="Search on Voutv..."
                 class="input-search"
-              />
+              ></b-input>
               <button type="submit" class="searchButton">Search</button>
             </div>
           </div>
           <!-- Right aligned nav items -->
-          <b-navbar-nav class="ml-auto">
+          <b-navbar-nav class=" ml-4">
             <b-nav-form style="cursor:pointer;">
               <b-icon
                 v-if="!showInputbar"
@@ -81,43 +138,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.header {
+  margin-bottom: 70px !important;
+}
 .search {
   animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 1s; /* don't forget to set a duration! */
-}
-
-.nav-item-one :hover {
-  border-bottom: 3px solid rgb(77, 178, 236);
-  padding-bottom: 3px;
-}
-.nav-item-two :hover {
-  border-bottom: 3px solid rgb(77, 178, 236);
-  padding-bottom: 3px;
-  /* border-bottom: 3px solid rgb(77, 178, 236); */
-}
-
-.nav-item-three :hover {
-  border-bottom: 3px solid rgb(77, 178, 236);
-  padding-bottom: 3px;
-}
-
-.nav-item-four :hover {
-  border-bottom: 3px solid rgb(77, 178, 236);
-  padding-bottom: 3px;
-}
-
-.nav-item-five :hover {
-  border-bottom: 3px solid rgb(77, 178, 236);
-  padding-bottom: 3px;
-}
-
-.nav-item-six :hover {
-  border-bottom: 3px solid rgb(77, 178, 236);
-  padding-bottom: 3px;
-  /* line-height: 30px;
-  text-decoration: underline rgb(77, 178, 236); */
-  /* border-bottom: 3px solid rgb(77, 178, 236); */
 }
 
 .nav-s-block {
@@ -166,16 +193,85 @@ export default {
 .my-custom-nav {
   font-size: 19px;
 }
+@media (max-width: 785px) {
+  .header {
+    margin-bottom: 85px !important;
+  }
+}
 
 @media (min-width: 575.98px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
   .my-custom-nav {
     height: 60px;
+  }
+  /* .header {
+    margin-bottom: 70px !important;
+  } */
+  .nav-item-one :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+  }
+  .nav-item-two :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+    /* border-bottom: 3px solid rgb(77, 178, 236); */
+  }
+
+  .nav-item-three :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+  }
+
+  .nav-item-four :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+  }
+
+  .nav-item-five :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+  }
+
+  .nav-item-six :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
   }
 }
 
 @media (min-width: 786px) {
   .my-custom-nav {
     height: 60px;
+  }
+  /* .header {
+    margin-bottom: 70px !important;
+  } */
+  .nav-item-one :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+  }
+  .nav-item-two :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+    /* border-bottom: 3px solid rgb(77, 178, 236); */
+  }
+
+  .nav-item-three :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+  }
+
+  .nav-item-four :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+  }
+
+  .nav-item-five :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
+  }
+
+  .nav-item-six :hover {
+    border-bottom: 3px solid rgb(77, 178, 236);
+    padding-bottom: 3px;
   }
 }
 </style>
