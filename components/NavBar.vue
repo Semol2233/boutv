@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar
-      class="my-custom-nav mb-2"
+      class="shadow-sm my-custom-nav"
       toggleable="sm"
       type="light"
       variant="light"
@@ -15,7 +15,7 @@
         </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav  v-if="!showInputbar">
+          <b-navbar-nav v-if="!showInputbar">
             <b-nav-item class="nav-item-one" active href="#"
               >বাংলাদেশ</b-nav-item
             >
@@ -50,6 +50,7 @@
               ></b-icon>
               <b-icon
                 v-else
+                scale="2"
                 icon="x"
                 @click="showNavItem"
                 variant="dark"
@@ -82,31 +83,41 @@ export default {
 
 <style>
 .search {
-  animation: fadeInRight; /* referring directly to the animation's @keyframe declaration */
+  animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 1s; /* don't forget to set a duration! */
 }
 
 .nav-item-one :hover {
   border-bottom: 3px solid rgb(77, 178, 236);
+  padding-bottom: 3px;
 }
 .nav-item-two :hover {
   border-bottom: 3px solid rgb(77, 178, 236);
+  padding-bottom: 3px;
+  /* border-bottom: 3px solid rgb(77, 178, 236); */
 }
 
 .nav-item-three :hover {
   border-bottom: 3px solid rgb(77, 178, 236);
+  padding-bottom: 3px;
 }
 
 .nav-item-four :hover {
   border-bottom: 3px solid rgb(77, 178, 236);
+  padding-bottom: 3px;
 }
 
 .nav-item-five :hover {
   border-bottom: 3px solid rgb(77, 178, 236);
+  padding-bottom: 3px;
 }
 
 .nav-item-six :hover {
   border-bottom: 3px solid rgb(77, 178, 236);
+  padding-bottom: 3px;
+  /* line-height: 30px;
+  text-decoration: underline rgb(77, 178, 236); */
+  /* border-bottom: 3px solid rgb(77, 178, 236); */
 }
 
 .nav-s-block {
@@ -132,7 +143,7 @@ export default {
   z-index: 1;
   box-sizing: border-box;
   font-size: 16px;
-  background: #e6e1e1;
+  background: #ffffff;
   outline: none;
   color: black;
   height: 45px;
@@ -142,7 +153,7 @@ export default {
   right: 0;
   width: 80px;
   height: 45px;
-  background: #e6e1e1;
+  background: #ffffff;
   text-align: center;
   color: black;
   border-radius: 6px;
@@ -151,11 +162,17 @@ export default {
   border: 0;
   outline: none;
 }
+
+.my-custom-nav {
+  font-size: 19px;
+}
+
 @media (min-width: 575.98px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
   .my-custom-nav {
     height: 60px;
   }
 }
+
 @media (min-width: 786px) {
   .my-custom-nav {
     height: 60px;
