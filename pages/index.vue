@@ -12,7 +12,7 @@
               height="48"
               width="48"
               class="rounded"
-              :src="require('~/static/logo.png')"
+              :src="require('~/static/icons/lt.png')"
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
@@ -33,7 +33,7 @@
               height="48"
               width="48"
               class="rounded"
-              :src="require('~/static/logo.png')"
+              :src="require('~/static/icons/n.png')"
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
@@ -62,7 +62,7 @@
           </b-row>
           <b-row no-gutters>
             <b-col
-              class="pl-0 pr-0 pt-1"
+              class="p-1 pt-2"
               v-for="i in 2"
               :key="i"
               cols="12"
@@ -100,7 +100,7 @@
               height="48"
               width="48"
               class="rounded"
-              :src="require('~/static/logo.png')"
+              :src="require('~/static/icons/p.png')"
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
@@ -114,13 +114,26 @@
               alt="Card image"
               height="170"
             ></b-card-img>
+            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+            <h5 class="">
+              <strong
+                >Game Changing Virtual Reality Console Hits the Market</strong
+              >
+            </h5>
           </b-card>
-          <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-          <h5 class="">
-            <strong
-              >Game Changing Virtual Reality Console Hits the Market</strong
-            >
-          </h5>
+          <b-card class="mt-4" no-body>
+            <b-card-img
+              src="https://placekitten.com/1000/300"
+              alt="Card image"
+              height="170"
+            ></b-card-img>
+            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+            <h5 class="">
+              <strong
+                >Game Changing Virtual Reality Console Hits the Market</strong
+              >
+            </h5>
+          </b-card>
         </b-col>
 
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
@@ -146,6 +159,7 @@
                       <p class="mt-4 text-muted">2012-7-90</p>
                     </div>
                   </div>
+                  <hr class="m-0 p-0" />
                 </b-list-group-item>
               </b-list-group>
             </div>
@@ -161,7 +175,7 @@
               height="48"
               width="48"
               class="rounded"
-              :src="require('~/static/logo.png')"
+              :src="require('~/static/icons/ai.png')"
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
@@ -178,8 +192,7 @@
             <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
             <h5 class="pb-2 pr-2">
               <strong
-                >Laptop with 128-bit Processor, 32GB of RAM and 24MP Front
-                Camera</strong
+                >Game Changing Virtual Reality Console Hits the Market</strong
               >
             </h5>
           </b-card>
@@ -187,7 +200,7 @@
             <div>
               <b-list-group>
                 <b-list-group-item
-                  class="custom-list-item"
+                  style="border:none;margin-bottom:3px;"
                   v-for="i in 2"
                   :key="i"
                 >
@@ -205,6 +218,7 @@
                       <p class="mt-4 text-muted">2012-7-90</p>
                     </div>
                   </div>
+                  <hr class="m-0 p-0" />
                 </b-list-group-item>
               </b-list-group>
             </div>
@@ -214,14 +228,14 @@
       </b-row>
       <b-row class="mt-4">
         <!-- Class Video Start -->
-        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+        <b-col class="mb-4" cols="12" sm="6" md="4" lg="4" xl="4">
           <div class="d-flex " style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
               height="48"
               width="48"
               class="rounded"
-              :src="require('~/static/logo.png')"
+              :src="require('~/static/icons/v.png')"
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
@@ -235,13 +249,13 @@
               alt="Card image"
               height="170"
             ></b-card-img>
+            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+            <h5 class="">
+              <strong
+                >Game Changing Virtual Reality Console Hits the Market</strong
+              >
+            </h5>
           </b-card>
-          <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-          <h5 class="">
-            <strong
-              >Game Changing Virtual Reality Console Hits the Market</strong
-            >
-          </h5>
         </b-col>
         <!-- Class Video End -->
 
@@ -262,7 +276,7 @@
               height="48"
               width="48"
               class="rounded"
-              :src="require('~/static/logo.png')"
+              :src="require('~/static/icons/c.png')"
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
@@ -276,13 +290,13 @@
               alt="Card image"
               height="170"
             ></b-card-img>
+            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+            <h5 class="">
+              <strong
+                >Game Changing Virtual Reality Console Hits the Market</strong
+              >
+            </h5>
           </b-card>
-          <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-          <h5 class="">
-            <strong
-              >Game Changing Virtual Reality Console Hits the Market</strong
-            >
-          </h5>
         </b-col>
         <!-- Contact End -->
       </b-row>
@@ -322,7 +336,7 @@ export default {
 }
 .custom-list-item {
   border: none !important;
-  margin-bottom: 5px;
+  margin-bottom: 14px;
   cursor: pointer;
 }
 .custom-latest-image {

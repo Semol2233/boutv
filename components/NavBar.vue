@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="logo-top text-center" style="height:134px;">
+    <div class="logo-top">
       <b-img src="~/static/bn3.JPG"></b-img>
     </div>
     <b-navbar
@@ -128,6 +128,7 @@
         </b-collapse>
       </b-container>
     </b-navbar>
+    <div class="content"></div>
   </div>
 </template>
 
@@ -136,7 +137,8 @@ export default {
   data() {
     return {
       showInputbar: false,
-      fixed: ""
+      fixed: null,
+      sticky: true
     };
   },
   methods: {
@@ -152,9 +154,15 @@ export default {
         var sticky = header.offsetTop;
 
         if (window.pageYOffset > sticky) {
-          this.fixed = "top";
+          // this.fixed = "top";
+          // this.sticky = false;
+
+          header.classList.add("sticky");
         } else {
-          this.fixed = "";
+          // this.sticky = true;
+          // header.classList.add("sticky-animation");
+          // this.fixed = true;
+          header.classList.remove("sticky");
         }
       };
     }
@@ -165,10 +173,47 @@ export default {
 };
 </script>
 
+
 <style scoped>
-/* .header {
-  margin-bottom: 110px !important;
+/* #my-nav {
+  overflow: visible;
 } */
+.header {
+  position: relative;
+}
+.logo-top {
+  padding: 10px;
+  text-align: center;
+}
+.sticky {
+  z-index: 10;
+  overflow: visible;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+.sticky-animation {
+  /* top: 0;
+  left: 0; */
+  animation: smoothScroll 1s forwards;
+}
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(80px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate {
+  animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 3s; /* don't forget to set a duration! */
+}
+
 .search {
   animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 1s; /* don't forget to set a duration! */

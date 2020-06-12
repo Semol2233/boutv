@@ -1,7 +1,7 @@
 <template>
   <div class="liveView">
     <video-player
-      class="vjs-custom-skin"
+      class="vjs-custom-skin videojs"
       ref="videoPlayer"
       :options="playerOptions"
       @ready="onPlayerReadied"
@@ -33,8 +33,7 @@ export default {
           {
             withCredentials: false,
             type: "application/x-mpegURL",
-            src:
-              "https://edge4.bioscopelive.com/hls/anonymous/AIhZrBoM1TWyBXI8jhbKYw/1591898772/shomoy_tv_hi/index.m3u8"
+            src: ""
           }
         ],
         poster: "~/static/brand.png"
