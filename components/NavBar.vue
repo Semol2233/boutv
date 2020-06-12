@@ -8,9 +8,9 @@
       fixed="top"
     >
       <b-container>
-        <b-navbar-brand href="#">
-          <b-img
-            style="height:50px; width:70px;"
+        <b-navbar-brand href="#"
+          ><b-img
+            style="height:80px; width:80px;"
             :src="require('~/static/brand.png')"
           ></b-img>
         </b-navbar-brand>
@@ -22,22 +22,21 @@
           backdrop-variant="light"
         >
           <div class="px-3 py-2">
-            <b-navbar-nav class="ml-auto" v-if="!showInputbar">
-              <b-nav-item class="nav-item-one" active href="#"
-                >বাংলাদেশ</b-nav-item
+            <b-navbar-nav v-if="!showInputbar">
+              <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
+                >Live Class</b-nav-item
               >
-              <b-nav-item class="nav-item-two" active href="#"
-                >বিশ্ব</b-nav-item
+              <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
+                >Photo</b-nav-item
               >
-              <b-nav-item class="nav-item-three" active href="#"
-                >খেলাধুলা</b-nav-item
+              <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
+                >Videos</b-nav-item
               >
-              <b-nav-item class="nav-item-four" active href="#"
-                >বিনোদন</b-nav-item
+              <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
+                >Class Content</b-nav-item
               >
-              <b-nav-item class="nav-item-five" active href="#">ছবি</b-nav-item>
-              <b-nav-item class="nav-item-six" active href="#"
-                >ভিডিও</b-nav-item
+              <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
+                >Notice Board</b-nav-item
               >
             </b-navbar-nav>
             <div v-else class="nav-s-block">
@@ -70,25 +69,22 @@
             </b-navbar-nav>
           </div>
         </b-sidebar>
-        <b-collapse id="nav-collapse sidebar-backdrop" is-nav>
-          <b-navbar-nav class="ml-auto" v-if="!showInputbar">
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav class="ml-auto nav-items" v-if="!showInputbar">
             <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
-              >বাংলাদেশ</b-nav-item
+              >Live Class</b-nav-item
             >
             <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
-              >বিশ্ব</b-nav-item
+              >Photo</b-nav-item
             >
             <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
-              >খেলাধুলা</b-nav-item
+              >Videos</b-nav-item
             >
             <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
-              >বিনোদন</b-nav-item
+              >Class Content</b-nav-item
             >
             <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
-              >ছবি</b-nav-item
-            >
-            <b-nav-item class="nav-item-six mr-2 p-1" active href="#"
-              >ভিডিও</b-nav-item
+              >Notice Board</b-nav-item
             >
           </b-navbar-nav>
           <div v-else class="nav-s-block">
@@ -144,9 +140,9 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  margin-bottom: 70px !important;
-}
+/* .header {
+  margin-bottom: 110px !important;
+} */
 .search {
   animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 1s; /* don't forget to set a duration! */
@@ -197,23 +193,27 @@ export default {
 }
 
 .my-custom-nav {
-  font-size: 16px;
+  font-size: 19px;
   box-shadow: 0 5px 0.9rem -0.8rem rgba(0, 0, 0, 0.8),
     0 0 0 1px rgba(0, 0, 0, 0.05);
 }
-@media (max-width: 785px) {
+/* @media (max-width: 785px) {
   .header {
-    margin-bottom: 85px !important;
+    margin-bottom: 110px !important;
+  }
+} */
+
+@media (max-width: 576px) {
+  .header {
+    margin-bottom: 110px !important;
   }
 }
 
-@media (min-width: 575.98px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
+@media (min-width: 576px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
   .my-custom-nav {
-    height: 60px;
+    height: 100px;
   }
-  /* .header {
-    margin-bottom: 70px !important;
-  } */
+
   .nav-item-one :hover {
     border-bottom: 3px solid rgb(77, 178, 236);
     padding-bottom: 3px;
@@ -246,9 +246,9 @@ export default {
 }
 
 @media (min-width: 786px) {
-  .my-custom-nav {
-    height: 60px;
-  }
+  /* .my-custom-nav {
+    height: 100px;
+  } */
   /* .header {
     margin-bottom: 70px !important;
   } */

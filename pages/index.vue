@@ -4,6 +4,21 @@
     <Carousel />
     <b-container>
       <b-row class="mb-4" no-gutters>
+        <b-col cols="12" sm="12" class="ml-1 mb-3 mt-4" md="12" lg="12" xl="12">
+          <div class="d-flex">
+            <b-img
+              style="background-color: #343a40; padding:5px"
+              height="48"
+              width="48"
+              class="rounded"
+              :src="require('~/static/logo.png')"
+            >
+            </b-img>
+            <h5 style="color:#222;" class="ml-2 mt-2">
+              <strong>Live Class</strong>
+            </h5>
+          </div>
+        </b-col>
         <b-col class="p-1" cols="12" sm="12" md="6" lg="6" xl="6">
           <client-only>
             <VideoPlayer />
@@ -22,7 +37,7 @@
                   sub-title=""
                   img-height="180"
                 >
-                  <b-card-text style="margin-top:90px;">
+                  <b-card-text text-tag="h5" style="margin-top:90px;">
                     Some quick example text to build on the card and make up the
                     bulk of the card's content.
                   </b-card-text>
@@ -51,7 +66,7 @@
                   sub-title=""
                   img-height="174"
                 >
-                  <b-card-text style="margin-top:90px;">
+                  <b-card-text text-tag="h5" style="margin-top:80px;">
                     Some quick example text to build on the card and make up.
                   </b-card-text>
                 </b-card>
@@ -61,6 +76,21 @@
         </b-col>
       </b-row>
       <b-row>
+        <b-col cols="12" sm="12" class="ml-1 mb-3 mt-4" md="12" lg="12" xl="12">
+          <div class="d-flex">
+            <b-img
+              style="background-color: #343a40; padding:5px"
+              height="48"
+              width="48"
+              class="rounded"
+              :src="require('~/static/logo.png')"
+            >
+            </b-img>
+            <h5 style="color:#222;" class="ml-2 mt-2">
+              <strong>Photos</strong>
+            </h5>
+          </div>
+        </b-col>
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
           <b-card no-body>
             <b-card-img
@@ -146,6 +176,38 @@
               </b-list-group>
             </div>
           </div>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col cols="12" sm="12" class="ml-1 mb-3 mt-4" md="12" lg="12" xl="12">
+          <div class="d-flex">
+            <b-img
+              style="background-color: #343a40; padding:5px"
+              height="48"
+              width="48"
+              class="rounded"
+              :src="require('~/static/logo.png')"
+            >
+            </b-img>
+            <h5 style="color:#222;" class="ml-2 mt-2">
+              <strong>Notice Board</strong>
+            </h5>
+          </div>
+        </b-col>
+        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+          <b-card no-body>
+            <b-card-img
+              src="https://placekitten.com/1000/300"
+              alt="Card image"
+              height="170"
+            ></b-card-img>
+          </b-card>
+          <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+          <h5 class="">
+            <strong
+              >Game Changing Virtual Reality Console Hits the Market</strong
+            >
+          </h5>
         </b-col>
       </b-row>
     </b-container>

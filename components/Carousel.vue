@@ -4,9 +4,8 @@
       <b-carousel
         id="carousel-1"
         v-model="slide"
-        :interval="4000"
+        :interval="0"
         controls
-        indicators
         background="#ababab"
         img-width="1024"
         img-height="317"
@@ -14,20 +13,26 @@
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
       >
-        <b-carousel-slide
-          img-src="https://picsum.photos/1024/480/?image=52"
-          img-alt="Blank image"
-        >
+        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
+          <div class="my-carousel-caption-up">
+            {{ date || time }}
+          </div>
+          <b-img
+            src="~/static/bn3.JPG"
+            class="my-carousel-caption-down"
+          ></b-img>
         </b-carousel-slide>
-        <b-carousel-slide
-          img-src="https://picsum.photos/1024/480/?image=54"
-          img-alt="Blank image"
-        >
+        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
+          <b-img
+            src="~/static/bn3.JPG"
+            class="my-carousel-caption-down"
+          ></b-img>
         </b-carousel-slide>
-        <b-carousel-slide
-          img-src="https://picsum.photos/1024/480/?image=58"
-          img-alt="Blank image"
-        >
+        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
+          <b-img
+            src="~/static/bn3.JPG"
+            class="my-carousel-caption-down"
+          ></b-img>
         </b-carousel-slide>
       </b-carousel>
     </b-container>
@@ -40,7 +45,9 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      date: "",
+      time: ""
     };
   },
   methods: {
@@ -49,12 +56,106 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    },
+    callFunction: function() {
+      var currentDate = new Date();
+
+      // const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      // const currentTime = moment()
+      //   .tz(timezone)
+      //   .format();
+      // this.time = currentTime;
+
+      var currentDateWithFormat = new Date()
+        .toJSON()
+        .slice(0, 10)
+        .replace(/-/g, "/");
+      this.date = currentDateWithFormat;
+
+      console.log(currentDateWithFormat);
     }
+  },
+  mounted() {
+    this.callFunction();
   }
 };
 </script>
 
 <style scoped>
+@media (max-width: 575px) {
+  .my-carousel-caption-down {
+    width: 273px;
+    height: 66px;
+    position: absolute;
+    right: 0%;
+    bottom: -39px;
+    left: -21%;
+    z-index: 10;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  .my-carousel-caption-up {
+    font-size: 16px;
+    position: absolute;
+    right: 0%;
+    bottom: 126px;
+    left: -121%;
+    z-index: 10;
+    padding-top: 0px;
+    /* padding-bottom: 20px; */
+    color: #000;
+    text-align: center;
+  }
+}
+
+@media (min-width: 576px) {
+  .myCarousel {
+    margin-top: 110px;
+  }
+  .my-carousel-caption-down {
+    width: 300px;
+    height: 75px;
+    position: absolute;
+    right: 0%;
+    bottom: -39px;
+    left: -21%;
+    z-index: 10;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  .my-carousel-caption-up {
+    width: 300px;
+    height: 75px;
+    font-size: 18px;
+    position: absolute;
+    right: 0%;
+    bottom: 250px;
+    left: -21%;
+    z-index: 10;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    color: #000;
+    text-align: left;
+  }
+}
+
+/* .my-carousel-caption {
+  position: absolute;
+  right: 90%;
+  bottom: 20px;
+  left: -22%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  height: 80px;
+} */
+
 /* @media (min-width: 400px) {
   .myCarousel {
     margin-top: 70px !important;
