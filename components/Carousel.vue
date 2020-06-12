@@ -14,22 +14,22 @@
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
       >
-        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
+        <b-carousel-slide img-height="317"  img-src="~/static/bou_monument.jpg">
           <!-- <div class="my-carousel-caption-up">
             {{ date || time }}
-          </div>
+          </div> 
           <b-img
             src="~/static/bn3.JPG"
             class="my-carousel-caption-down"
           ></b-img> -->
         </b-carousel-slide>
-        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
+        <b-carousel-slide img-height="317" img-src="~/static/5convo2.jpg">
           <!-- <b-img
             src="~/static/bn3.JPG"
             class="my-carousel-caption-down"
           ></b-img> -->
         </b-carousel-slide>
-        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
+        <b-carousel-slide img-height="317" img-src="~/static/5convo3.jpg">
           <!-- <b-img
             src="~/static/bn3.JPG"
             class="my-carousel-caption-down"

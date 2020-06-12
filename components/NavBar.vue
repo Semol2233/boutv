@@ -1,7 +1,17 @@
 <template>
   <div class="header">
     <div class="logo-top">
-      <b-img src="~/static/bn3.JPG"></b-img>
+     <div class="center">
+        <b-row>
+        <b-col col="1">
+           <h1>Boutv</h1>
+        </b-col>
+
+        <b-col col="1">
+            <b-img class="jdachdccdc" src="~/static/bn3.JPG"></b-img>
+        </b-col>
+      </b-row>
+     </div>
     </div>
     <b-navbar
       id="my-nav"
@@ -10,7 +20,7 @@
       type="light"
       style="background-color:white;"
       :fixed="fixed"
-    >
+    > 
       <b-container>
         <b-navbar-brand href="#"
           ><b-img
@@ -316,6 +326,11 @@ export default {
   }
 }
 
+
+.jdachdccdc{
+  width: 276px;
+}
+
 @media (min-width: 786px) {
   /* .my-custom-nav {
     height: 100px;
@@ -352,5 +367,11 @@ export default {
     border-bottom: 3px solid rgb(77, 178, 236);
     padding-bottom: 3px;
   }
+}
+
+.center{
+  margin: auto;
+  width: 20%;
+  padding: 5px; 
 }
 </style>
