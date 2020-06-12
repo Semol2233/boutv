@@ -4,8 +4,9 @@
     <Carousel />
     <b-container>
       <b-row class="mb-4" no-gutters>
-        <b-col cols="12" sm="12" class="ml-1 mb-3 mt-4" md="12" lg="12" xl="12">
-          <div class="d-flex">
+        <!-- Live Class Start -->
+        <b-col class="p-1" cols="12" sm="12" md="6" lg="6" xl="6">
+          <div class="d-flex " style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
               height="48"
@@ -18,13 +19,27 @@
               <strong>Live Class</strong>
             </h5>
           </div>
-        </b-col>
-        <b-col class="p-1" cols="12" sm="12" md="6" lg="6" xl="6">
           <client-only>
             <VideoPlayer />
           </client-only>
         </b-col>
+        <!-- Live Class End -->
+
+        <!-- Notice Board Start -->
         <b-col class="pl-1 pt-1 pb-1" cols="12" sm="12" md="6" lg="6" xl="6">
+          <div class="d-flex" style="margin-bottom:10px;">
+            <b-img
+              style="background-color: #343a40; padding:5px"
+              height="48"
+              width="48"
+              class="rounded"
+              :src="require('~/static/logo.png')"
+            >
+            </b-img>
+            <h5 style="color:#222;" class="ml-2 mt-2">
+              <strong>Notice Board</strong>
+            </h5>
+          </div>
           <b-row>
             <b-col cols="12" sm="12" md="12" lg="12" xl="12">
               <div>
@@ -74,10 +89,12 @@
             >
           </b-row>
         </b-col>
+        <!-- Notice Board End -->
       </b-row>
       <b-row>
-        <b-col cols="12" sm="12" class="ml-1 mb-3 mt-4" md="12" lg="12" xl="12">
-          <div class="d-flex">
+        <!-- Photo Start -->
+        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+          <div class="d-flex " style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
               height="48"
@@ -87,11 +104,10 @@
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Photos</strong>
+              <strong>Photo</strong>
             </h5>
           </div>
-        </b-col>
-        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+
           <b-card no-body>
             <b-card-img
               src="https://placekitten.com/1000/300"
@@ -106,8 +122,9 @@
             >
           </h5>
         </b-col>
+
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class="latest-home-card">
+          <div class="latest-home-card" style="margin-top:57px;">
             <div>
               <b-list-group>
                 <b-list-group-item
@@ -134,7 +151,23 @@
             </div>
           </div>
         </b-col>
+        <!-- Photo End -->
+
+        <!-- Academic Info Start -->
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+          <div class="d-flex " style="margin-bottom:10px;">
+            <b-img
+              style="background-color: #343a40; padding:5px"
+              height="48"
+              width="48"
+              class="rounded"
+              :src="require('~/static/logo.png')"
+            >
+            </b-img>
+            <h5 style="color:#222;" class="ml-2 mt-2">
+              <strong>Academic Info</strong>
+            </h5>
+          </div>
           <b-card no-body>
             <b-card-img
               src="https://placekitten.com/1000/300"
@@ -177,10 +210,12 @@
             </div>
           </div>
         </b-col>
+        <!-- Academic Info End -->
       </b-row>
-      <b-row>
-        <b-col cols="12" sm="12" class="ml-1 mb-3 mt-4" md="12" lg="12" xl="12">
-          <div class="d-flex">
+      <b-row class="mt-4">
+        <!-- Class Video Start -->
+        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+          <div class="d-flex " style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
               height="48"
@@ -190,11 +225,10 @@
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Notice Board</strong>
+              <strong>Class Video</strong>
             </h5>
           </div>
-        </b-col>
-        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+
           <b-card no-body>
             <b-card-img
               src="https://placekitten.com/1000/300"
@@ -209,6 +243,48 @@
             >
           </h5>
         </b-col>
+        <!-- Class Video End -->
+
+        <!-- Contact -->
+        <b-col
+          offset-md="4"
+          offset-lg="4"
+          offset-xl="4"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="4"
+          xl="4"
+        >
+          <div class="d-flex " style="margin-bottom:10px;">
+            <b-img
+              style="background-color: #343a40; padding:5px"
+              height="48"
+              width="48"
+              class="rounded"
+              :src="require('~/static/logo.png')"
+            >
+            </b-img>
+            <h5 style="color:#222;" class="ml-2 mt-2">
+              <strong>Contact</strong>
+            </h5>
+          </div>
+
+          <b-card no-body>
+            <b-card-img
+              src="https://placekitten.com/1000/300"
+              alt="Card image"
+              height="170"
+            ></b-card-img>
+          </b-card>
+          <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+          <h5 class="">
+            <strong
+              >Game Changing Virtual Reality Console Hits the Market</strong
+            >
+          </h5>
+        </b-col>
+        <!-- Contact End -->
       </b-row>
     </b-container>
   </div>

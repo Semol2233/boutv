@@ -6,6 +6,7 @@
         v-model="slide"
         :interval="0"
         controls
+        indicators
         background="#ababab"
         img-width="1024"
         img-height="317"
@@ -14,25 +15,25 @@
         @sliding-end="onSlideEnd"
       >
         <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
-          <div class="my-carousel-caption-up">
+          <!-- <div class="my-carousel-caption-up">
             {{ date || time }}
           </div>
           <b-img
             src="~/static/bn3.JPG"
             class="my-carousel-caption-down"
-          ></b-img>
+          ></b-img> -->
         </b-carousel-slide>
         <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
-          <b-img
+          <!-- <b-img
             src="~/static/bn3.JPG"
             class="my-carousel-caption-down"
-          ></b-img>
+          ></b-img> -->
         </b-carousel-slide>
         <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
-          <b-img
+          <!-- <b-img
             src="~/static/bn3.JPG"
             class="my-carousel-caption-down"
-          ></b-img>
+          ></b-img> -->
         </b-carousel-slide>
       </b-carousel>
     </b-container>
@@ -76,14 +77,17 @@ export default {
     }
   },
   mounted() {
-    this.callFunction();
+    // this.callFunction();
   }
 };
 </script>
 
 <style scoped>
 @media (max-width: 575px) {
-  .my-carousel-caption-down {
+  .myCarousel {
+    margin-top: 10px;
+  }
+  /* .my-carousel-caption-down {
     width: 273px;
     height: 66px;
     position: absolute;
@@ -104,17 +108,16 @@ export default {
     left: -121%;
     z-index: 10;
     padding-top: 0px;
-    /* padding-bottom: 20px; */
     color: #000;
     text-align: center;
-  }
+  } */
 }
 
 @media (min-width: 576px) {
   .myCarousel {
-    margin-top: 110px;
+    margin-top: 10px;
   }
-  .my-carousel-caption-down {
+  /* .my-carousel-caption-down {
     width: 300px;
     height: 75px;
     position: absolute;
@@ -140,7 +143,7 @@ export default {
     padding-bottom: 20px;
     color: #000;
     text-align: left;
-  }
+  } */
 }
 
 /* .my-carousel-caption {

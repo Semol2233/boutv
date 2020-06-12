@@ -1,11 +1,15 @@
 <template>
   <div class="header">
+    <div class="logo-top text-center" style="height:134px;">
+      <b-img src="~/static/bn3.JPG"></b-img>
+    </div>
     <b-navbar
-      class=" my-custom-nav"
+      id="my-nav"
+      class="my-custom-nav"
       toggleable="sm"
       type="light"
       style="background-color:white;"
-      fixed="top"
+      :fixed="fixed"
     >
       <b-container>
         <b-navbar-brand href="#"
@@ -24,19 +28,22 @@
           <div class="px-3 py-2">
             <b-navbar-nav v-if="!showInputbar">
               <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
-                >Live Class</b-nav-item
+                >Notice Board</b-nav-item
               >
               <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
-                >Photo</b-nav-item
+                >Live Class</b-nav-item
               >
               <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
-                >Videos</b-nav-item
+                >Photo</b-nav-item
               >
               <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
-                >Class Content</b-nav-item
+                >Academic Info</b-nav-item
               >
               <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
-                >Notice Board</b-nav-item
+                >Class Video</b-nav-item
+              >
+              <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
+                >Contact</b-nav-item
               >
             </b-navbar-nav>
             <div v-else class="nav-s-block">
@@ -72,19 +79,22 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto nav-items" v-if="!showInputbar">
             <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
-              >Live Class</b-nav-item
+              >Notice Board</b-nav-item
             >
             <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
-              >Photo</b-nav-item
+              >Live Class</b-nav-item
             >
             <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
-              >Videos</b-nav-item
+              >Photo</b-nav-item
             >
             <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
-              >Class Content</b-nav-item
+              >Academic Info</b-nav-item
             >
             <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
-              >Notice Board</b-nav-item
+              >Class Video</b-nav-item
+            >
+            <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
+              >Contact</b-nav-item
             >
           </b-navbar-nav>
           <div v-else class="nav-s-block">
@@ -125,7 +135,8 @@
 export default {
   data() {
     return {
-      showInputbar: false
+      showInputbar: false,
+      fixed: ""
     };
   },
   methods: {
@@ -134,7 +145,22 @@ export default {
     },
     showNavItem() {
       this.showInputbar = false;
+    },
+    scroll() {
+      window.onscroll = () => {
+        let header = document.getElementById("my-nav");
+        var sticky = header.offsetTop;
+
+        if (window.pageYOffset > sticky) {
+          this.fixed = "top";
+        } else {
+          this.fixed = "";
+        }
+      };
     }
+  },
+  mounted() {
+    this.scroll();
   }
 };
 </script>
@@ -204,9 +230,9 @@ export default {
 } */
 
 @media (max-width: 576px) {
-  .header {
-    margin-bottom: 110px !important;
-  }
+  /* .header { */
+  /* margin-bottom: 80px !important; */
+  /* } */
 }
 
 @media (min-width: 576px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
