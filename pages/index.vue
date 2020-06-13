@@ -322,8 +322,7 @@ export default {
 <style scoped>
 .latest-home-card {
   background: #ffff;
-  box-shadow: 0 5px 0.9rem -0.8rem rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 0 -0.8rem rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
 }
 .custom-latest-title {

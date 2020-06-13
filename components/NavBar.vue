@@ -128,7 +128,7 @@
         </b-collapse>
       </b-container>
     </b-navbar>
-    <div class="content"></div>
+    <!-- <div class="content"></div> -->
   </div>
 </template>
 
@@ -154,14 +154,14 @@ export default {
         var sticky = header.offsetTop;
 
         if (window.pageYOffset > sticky) {
-          // this.fixed = "top";
-          // this.sticky = false;
+          this.fixed = "top";
+          this.sticky = false;
 
-          header.classList.add("sticky");
+          // header.classList.add("sticky");
         } else {
-          // this.sticky = true;
+          this.sticky = true;
           // header.classList.add("sticky-animation");
-          // this.fixed = true;
+          this.fixed = null;
           header.classList.remove("sticky");
         }
       };
@@ -182,7 +182,7 @@ export default {
   position: relative;
 }
 .logo-top {
-  padding: 10px;
+  /* padding: 10px; */
   text-align: center;
 }
 .sticky {
@@ -272,13 +272,13 @@ export default {
   .header {
     margin-bottom: 110px !important;
   }
-} */
+}
 
 @media (max-width: 576px) {
-  /* .header { */
-  /* margin-bottom: 80px !important; */
-  /* } */
-}
+   .header { 
+   margin-bottom: 80px !important; 
+   } 
+} */
 
 @media (min-width: 576px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
   .my-custom-nav {
