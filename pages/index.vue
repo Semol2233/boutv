@@ -91,10 +91,10 @@
         </b-col>
         <!-- Notice Board End -->
       </b-row>
-      <b-row>
+      <b-row no-gutters>
         <!-- Photo Start -->
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class="d-flex " style="margin-bottom:10px;">
+          <div class="d-flex" style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
               height="48"
@@ -107,37 +107,37 @@
               <strong>Photo</strong>
             </h5>
           </div>
-
-          <b-card no-body>
-            <b-card-img
-              src="https://placekitten.com/1000/300"
-              alt="Card image"
-              height="170"
-            ></b-card-img>
-            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-            <h5 class="">
-              <strong
-                >Game Changing Virtual Reality Console Hits the Market</strong
-              >
-            </h5>
-          </b-card>
-          <b-card class="mt-4" no-body>
-            <b-card-img
-              src="https://placekitten.com/1000/300"
-              alt="Card image"
-              height="170"
-            ></b-card-img>
-            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-            <h5 class="">
-              <strong
-                >Game Changing Virtual Reality Console Hits the Market</strong
-              >
-            </h5>
-          </b-card>
+          <div class="latest-home-card">
+            <b-card no-body>
+              <b-card-img
+                src="https://placekitten.com/1000/300"
+                alt="Card image"
+                height="170"
+              ></b-card-img>
+              <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+              <h5 class="">
+                <strong
+                  >Game Changing Virtual Reality Console Hits the Market</strong
+                >
+              </h5>
+            </b-card>
+            <b-card class="mt-4" no-body>
+              <b-card-img
+                src="https://placekitten.com/1000/300"
+                alt="Card image"
+                height="170"
+              ></b-card-img>
+              <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+              <h5 class="">
+                <strong
+                  >Game Changing Virtual Reality Console Hits the Market</strong
+                >
+              </h5>
+            </b-card>
+          </div>
         </b-col>
-
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class="latest-home-card" style="margin-top:57px;">
+          <div class=" latest-home-card" style="margin-top:57px;">
             <div>
               <b-list-group>
                 <b-list-group-item
@@ -169,58 +169,60 @@
 
         <!-- Academic Info Start -->
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class="d-flex " style="margin-bottom:10px;">
-            <b-img
-              style="background-color: #343a40; padding:5px"
-              height="48"
-              width="48"
-              class="rounded"
-              :src="require('~/static/icons/ai.png')"
-            >
-            </b-img>
-            <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Academic Info</strong>
-            </h5>
-          </div>
-          <b-card no-body>
-            <b-card-img
-              src="https://placekitten.com/1000/300"
-              alt="Card image"
-              height="170"
-            ></b-card-img>
-
-            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-            <h5 class="pb-2 pr-2">
-              <strong
-                >Game Changing Virtual Reality Console Hits the Market</strong
+          <div class="ml-4">
+            <div class="d-flex " style="margin-bottom:10px;">
+              <b-img
+                style="background-color: #343a40; padding:5px"
+                height="48"
+                width="48"
+                class="rounded"
+                :src="require('~/static/icons/ai.png')"
               >
-            </h5>
-          </b-card>
-          <div class="latest-home-card mt-4">
-            <div>
-              <b-list-group>
-                <b-list-group-item
-                  style="border:none;margin-bottom:3px;"
-                  v-for="i in 2"
-                  :key="i"
+              </b-img>
+              <h5 style="color:#222;" class="ml-2 mt-2">
+                <strong>Academic Info</strong>
+              </h5>
+            </div>
+            <b-card no-body>
+              <b-card-img
+                src="https://placekitten.com/1000/300"
+                alt="Card image"
+                height="170"
+              ></b-card-img>
+
+              <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
+              <h5 class="pb-2 pr-2">
+                <strong
+                  >Game Changing Virtual Reality Console Hits the Market</strong
                 >
-                  <div class="d-flex">
-                    <div>
-                      <b-img-lazy
-                        class="custom-latest-image"
-                        :src="require('~/static/brand.png')"
-                        alt="Image 1"
-                      ></b-img-lazy>
+              </h5>
+            </b-card>
+            <div class="latest-home-card mt-4">
+              <div>
+                <b-list-group>
+                  <b-list-group-item
+                    style="border:none;margin-bottom:3px;"
+                    v-for="i in 2"
+                    :key="i"
+                  >
+                    <div class="d-flex">
+                      <div>
+                        <b-img-lazy
+                          class="custom-latest-image"
+                          :src="require('~/static/brand.png')"
+                          alt="Image 1"
+                        ></b-img-lazy>
+                      </div>
+                      <div class="custom-latest-text">
+                        This is a sample title for latest div.This will show on
+                        right
+                        <p class="mt-4 text-muted">2012-7-90</p>
+                      </div>
                     </div>
-                    <div class="custom-latest-text">
-                      This is a sample title for latest div.This will show on
-                      right
-                      <p class="mt-4 text-muted">2012-7-90</p>
-                    </div>
-                  </div>
-                  <hr class="m-0 p-0" />
-                </b-list-group-item>
-              </b-list-group>
+                    <hr class="m-0 p-0" />
+                  </b-list-group-item>
+                </b-list-group>
+              </div>
             </div>
           </div>
         </b-col>
@@ -320,9 +322,9 @@ export default {
 <style scoped>
 .latest-home-card {
   background: #ffff;
-  /* box-shadow: 0 5px 0.9rem -0.8rem rgba(0, 0, 0, 0.8),
+  box-shadow: 0 5px 0.9rem -0.8rem rgba(0, 0, 0, 0.8),
     0 0 0 1px rgba(0, 0, 0, 0.05);
-  border-radius: 5px; */
+  border-radius: 5px;
 }
 .custom-latest-title {
   box-sizing: border-box;
@@ -336,7 +338,7 @@ export default {
 }
 .custom-list-item {
   border: none !important;
-  margin-bottom: 14px;
+  margin-bottom: 13px;
   cursor: pointer;
 }
 .custom-latest-image {
