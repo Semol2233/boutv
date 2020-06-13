@@ -197,7 +197,7 @@
                 >
               </h5>
             </b-card>
-            <div class="latest-home-card mt-4">
+            <div class="mt-4">
               <div>
                 <b-list-group>
                   <b-list-group-item
@@ -337,6 +337,7 @@ export default {
   border-bottom: 1px solid #eee;
 }
 .custom-list-item {
+  margin-left: 10px;
   border: none !important;
   margin-bottom: 13px;
   cursor: pointer;
