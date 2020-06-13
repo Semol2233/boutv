@@ -1,6 +1,8 @@
 <template>
   <div>
     <!-- start Logo start -->
+
+    <!-- start logo end -->
     <b-container>
       <b-row>
         <b-col
@@ -19,10 +21,10 @@
         </b-col>
       </b-row>
     </b-container>
-    <!-- start logo end -->
-    
     <!-- navbar start -->
-    <NavBar />
+    <div class="side-panel">
+      <NavBar />
+    </div>
     <!-- navbar end -->
     <Carousel />
     <b-container>
@@ -361,6 +363,13 @@ export default {
 };
 </script>
 <style scoped>
+.side-panel {
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 20;
+  border-right: solid 0.5px rgba(0, 0, 0, 0.2);
+}
 @media (min-width: 576px) {
   .photo-section-two {
     margin-top: 53px;

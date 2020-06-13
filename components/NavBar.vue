@@ -6,7 +6,6 @@
       toggleable="sm"
       type="light"
       style="background-color:#fafafa;"
-      :fixed="fixed"
     >
       <b-container>
         <b-navbar-brand to="/"
@@ -183,21 +182,20 @@ export default {
         var sticky = header.offsetTop;
 
         if (window.pageYOffset > sticky) {
-          this.fixed = "top";
-          this.sticky = false;
-
+          // this.fixed = "top";
+          // this.sticky = false;
           // header.classList.add("sticky");
         } else {
-          this.sticky = true;
+          // this.sticky = true;
           // header.classList.add("sticky-animation");
-          this.fixed = null;
-          header.classList.remove("sticky");
+          // this.fixed = null;
+          // header.classList.remove("sticky");
         }
       };
     }
   },
   mounted() {
-    this.scroll();
+    // this.scroll();
   }
 };
 </script>
