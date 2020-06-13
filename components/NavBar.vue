@@ -1,17 +1,7 @@
 <template>
   <div class="header">
     <div class="logo-top">
-     <div class="center">
-        <b-row>
-        <b-col col="1">
-           <h1>Boutv</h1>
-        </b-col>
-
-        <b-col col="1">
-            <b-img class="jdachdccdc" src="~/static/bn3.JPG"></b-img>
-        </b-col>
-      </b-row>
-     </div>
+            <b-img class="" src="~/static/bn3.JPG"></b-img>
     </div>
     <b-navbar
       id="my-nav"
