@@ -1,23 +1,5 @@
 <template>
   <div class="header">
-    <b-container>
-      <b-row>
-        <b-col
-          cols="12"
-          sm="12"
-          offset-md="3"
-          offset-lg="3"
-          offset-xl="3"
-          md="6"
-          lg="6"
-          xl="6"
-        >
-          <b-card style="text-align:center;border:none !important;" no-body>
-            <b-card-img height="134" src="~/static/bn3.JPG"></b-card-img>
-          </b-card>
-        </b-col>
-      </b-row>
-    </b-container>
     <b-navbar
       id="my-nav"
       class="my-custom-nav"
@@ -27,7 +9,7 @@
       :fixed="fixed"
     >
       <b-container>
-        <b-navbar-brand href="#"
+        <b-navbar-brand to="/"
           ><b-img
             style="height:75px; width:80px;"
             :src="require('~/static/brand.png')"
@@ -42,19 +24,35 @@
         >
           <div class="px-3 py-2">
             <b-navbar-nav v-if="!showInputbar">
-              <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
+              <b-nav-item
+                :to="'/next/' + 'Notice Board'"
+                class="nav-item-one mr-2 p-1"
+                active
+                href="#"
                 >Notice Board</b-nav-item
               >
               <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
                 >Live Class</b-nav-item
               >
-              <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
+              <b-nav-item
+                :to="'/next/' + 'Photo'"
+                class="nav-item-three mr-2 p-1"
+                active
+                href="#"
                 >Photo</b-nav-item
               >
-              <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
+              <b-nav-item
+                :to="'/next/' + 'Academic Info'"
+                class="nav-item-four mr-2 p-1"
+                active
+                href="#"
                 >Academic Info</b-nav-item
               >
-              <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
+              <b-nav-item
+                :to="'/next/' + 'Class Note'"
+                class="nav-item-five mr-2 p-1"
+                active
+                href="#"
                 >Class Note</b-nav-item
               >
               <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
@@ -93,19 +91,35 @@
         </b-sidebar>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto nav-items" v-if="!showInputbar">
-            <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
+            <b-nav-item
+              :to="'/next/' + 'Notice Board'"
+              class="nav-item-one mr-2 p-1"
+              active
+              href="#"
               >Notice Board</b-nav-item
             >
             <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
               >Live Class</b-nav-item
             >
-            <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
+            <b-nav-item
+              :to="'/next/' + 'Photo'"
+              class="nav-item-three mr-2 p-1"
+              active
+              href="#"
               >Photo</b-nav-item
             >
-            <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
+            <b-nav-item
+              :to="'/next/' + 'Academic Info'"
+              class="nav-item-four mr-2 p-1"
+              active
+              href="#"
               >Academic Info</b-nav-item
             >
-            <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
+            <b-nav-item
+              :to="'/next/' + 'Class Note'"
+              class="nav-item-five mr-2 p-1"
+              active
+              href="#"
               >Class Note</b-nav-item
             >
             <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
