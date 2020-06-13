@@ -1,20 +1,35 @@
 <template>
   <div class="header">
-    <div class="logo-top">
-      <b-img src="~/static/bn3.JPG"></b-img>
-    </div>
+    <b-container>
+      <b-row>
+        <b-col
+          cols="12"
+          sm="12"
+          offset-md="3"
+          offset-lg="3"
+          offset-xl="3"
+          md="6"
+          lg="6"
+          xl="6"
+        >
+          <b-card style="text-align:center;border:none !important;" no-body>
+            <b-card-img height="134" src="~/static/bn3.JPG"></b-card-img>
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
     <b-navbar
       id="my-nav"
       class="my-custom-nav"
       toggleable="sm"
       type="light"
-      style="background-color:white;"
+      style="background-color:#fafafa;"
       :fixed="fixed"
     >
       <b-container>
         <b-navbar-brand href="#"
           ><b-img
-            style="height:80px; width:80px;"
+            style="height:75px; width:80px;"
             :src="require('~/static/brand.png')"
           ></b-img>
         </b-navbar-brand>
@@ -40,7 +55,7 @@
                 >Academic Info</b-nav-item
               >
               <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
-                >Class Video</b-nav-item
+                >Class Note</b-nav-item
               >
               <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
                 >Contact</b-nav-item
@@ -91,7 +106,7 @@
               >Academic Info</b-nav-item
             >
             <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
-              >Class Video</b-nav-item
+              >Class Note</b-nav-item
             >
             <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
               >Contact</b-nav-item
@@ -282,7 +297,7 @@ export default {
 
 @media (min-width: 576px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
   .my-custom-nav {
-    height: 100px;
+    height: 85px;
   }
 
   .nav-item-one :hover {

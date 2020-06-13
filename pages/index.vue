@@ -9,8 +9,8 @@
           <div class="d-flex " style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
-              height="48"
-              width="48"
+              height="43"
+              width="43"
               class="rounded"
               :src="require('~/static/icons/lt.png')"
             >
@@ -30,8 +30,8 @@
           <div class="d-flex" style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
-              height="48"
-              width="48"
+              height="43"
+              width="43"
               class="rounded"
               :src="require('~/static/icons/n.png')"
             >
@@ -41,7 +41,7 @@
             </h5>
           </div>
           <b-row>
-            <b-col cols="12" sm="12" md="12" lg="12" xl="12">
+            <b-col class="" cols="12" sm="12" md="12" lg="12" xl="12">
               <div>
                 <b-card
                   overlay
@@ -62,7 +62,7 @@
           </b-row>
           <b-row no-gutters>
             <b-col
-              class="p-1 pt-2"
+              class="p-md-1 pt-md-2 mb-2 mt-2 my-md-0 my-lg-0 my-xl-0  "
               v-for="i in 2"
               :key="i"
               cols="12"
@@ -97,8 +97,8 @@
           <div class="d-flex" style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
-              height="48"
-              width="48"
+              height="43"
+              width="43"
               class="rounded"
               :src="require('~/static/icons/p.png')"
             >
@@ -107,15 +107,17 @@
               <strong>Photo</strong>
             </h5>
           </div>
-          <div class="latest-home-card">
+          <div class="latest-home-card p-3">
             <b-card no-body>
               <b-card-img
                 src="https://placekitten.com/1000/300"
                 alt="Card image"
                 height="170"
               ></b-card-img>
-              <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-              <h5 class="">
+              <p class="text-muted mt-3 ml-2" style="font-size:16px;">
+                12-11-2101
+              </p>
+              <h5 class=" ml-2">
                 <strong
                   >Game Changing Virtual Reality Console Hits the Market</strong
                 >
@@ -127,8 +129,10 @@
                 alt="Card image"
                 height="170"
               ></b-card-img>
-              <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-              <h5 class="">
+              <p class="text-muted mt-3 ml-2" style="font-size:16px;">
+                12-11-2101
+              </p>
+              <h5 class="ml-2">
                 <strong
                   >Game Changing Virtual Reality Console Hits the Market</strong
                 >
@@ -137,7 +141,7 @@
           </div>
         </b-col>
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class=" latest-home-card" style="margin-top:57px;">
+          <div class="latest-home-card photo-section-two">
             <div>
               <b-list-group>
                 <b-list-group-item
@@ -173,8 +177,8 @@
             <div class="d-flex " style="margin-bottom:10px;">
               <b-img
                 style="background-color: #343a40; padding:5px"
-                height="48"
-                width="48"
+                height="43"
+                width="43"
                 class="rounded"
                 :src="require('~/static/icons/ai.png')"
               >
@@ -190,8 +194,10 @@
                 height="170"
               ></b-card-img>
 
-              <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-              <h5 class="pb-2 pr-2">
+              <p class="text-muted mt-3 ml-2" style="font-size:16px;">
+                12-11-2101
+              </p>
+              <h5 class="pb-2 pr-2 ml-2">
                 <strong
                   >Game Changing Virtual Reality Console Hits the Market</strong
                 >
@@ -199,9 +205,9 @@
             </b-card>
             <div class="mt-4">
               <div>
-                <b-list-group>
+                <b-list-group style="background-color:#ffff">
                   <b-list-group-item
-                    style="border:none;margin-bottom:3px;"
+                    style="border:none;margin-bottom:18px;"
                     v-for="i in 2"
                     :key="i"
                   >
@@ -230,29 +236,41 @@
       </b-row>
       <b-row class="mt-4">
         <!-- Class Video Start -->
-        <b-col class="mb-4" cols="12" sm="6" md="4" lg="4" xl="4">
+        <b-col cols="12">
           <div class="d-flex " style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
-              height="48"
-              width="48"
+              height="43"
+              width="43"
               class="rounded"
               :src="require('~/static/icons/v.png')"
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Class Video</strong>
+              <strong>Class Note</strong>
             </h5>
           </div>
-
+        </b-col>
+        <b-col
+          class="mb-4"
+          v-for="i in 3"
+          :key="i"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="4"
+          xl="4"
+        >
           <b-card no-body>
             <b-card-img
               src="https://placekitten.com/1000/300"
               alt="Card image"
               height="170"
             ></b-card-img>
-            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-            <h5 class="">
+            <p class="text-muted mt-3 ml-3" style="font-size:16px;">
+              12-11-2101
+            </p>
+            <h5 class="ml-3">
               <strong
                 >Game Changing Virtual Reality Console Hits the Market</strong
               >
@@ -262,7 +280,7 @@
         <!-- Class Video End -->
 
         <!-- Contact -->
-        <b-col
+        <!-- <b-col
           offset-md="4"
           offset-lg="4"
           offset-xl="4"
@@ -275,8 +293,8 @@
           <div class="d-flex " style="margin-bottom:10px;">
             <b-img
               style="background-color: #343a40; padding:5px"
-              height="48"
-              width="48"
+              height="43"
+              width="43"
               class="rounded"
               :src="require('~/static/icons/c.png')"
             >
@@ -299,7 +317,7 @@
               >
             </h5>
           </b-card>
-        </b-col>
+        </b-col> -->
         <!-- Contact End -->
       </b-row>
     </b-container>
@@ -320,6 +338,16 @@ export default {
 };
 </script>
 <style scoped>
+@media (min-width: 576px) {
+  .photo-section-two {
+    margin-top: 53px;
+  }
+}
+@media (min-width: 576px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
+  .photo-section-two {
+    margin-top: 53px;
+  }
+}
 .latest-home-card {
   background: #ffff;
   box-shadow: 0 5px 0 -0.8rem rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.05);
@@ -338,7 +366,7 @@ export default {
 .custom-list-item {
   margin-left: 10px;
   border: none !important;
-  margin-bottom: 13px;
+  margin-bottom: 21px;
   cursor: pointer;
 }
 .custom-latest-image {
