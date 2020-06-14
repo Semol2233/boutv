@@ -65,54 +65,64 @@
               <strong>Notice Board</strong>
             </h5>
           </div>
-          <b-row>
-            <b-col class="" cols="12" sm="12" md="12" lg="12" xl="12">
-              <div>
-                <b-card
-                  overlay
-                  img-src="https://picsum.photos/900/250/?image=3"
-                  img-alt="Card Image"
-                  text-variant="white"
-                  title=""
-                  sub-title=""
-                  img-height="180"
-                >
-                  <b-card-text text-tag="h5" style="margin-top:90px;">
-                    Some quick example text to build on the card and make up the
-                    bulk of the card's content.
-                  </b-card-text>
-                </b-card>
-              </div>
-            </b-col>
-          </b-row>
-          <b-row no-gutters>
-            <b-col
-              class="p-md-1 pt-md-2 mb-2 mt-2 my-md-0 my-lg-0 my-xl-0  "
-              v-for="i in 2"
-              :key="i"
-              cols="12"
-              sm="12"
-              md="6"
-              lg="6"
-              xl="6"
-            >
-              <div>
-                <b-card
-                  overlay
-                  img-src="https://picsum.photos/900/250/?image=3"
-                  img-alt="Card Image"
-                  text-variant="white"
-                  title=""
-                  sub-title=""
-                  img-height="174"
-                >
-                  <b-card-text text-tag="h5" style="margin-top:80px;">
-                    Some quick example text to build on the card and make up.
-                  </b-card-text>
-                </b-card>
-              </div></b-col
-            >
-          </b-row>
+          <div>
+            <b-row>
+              <b-col
+                v-for="(item, index) in noticeBoard.slice(0, 1)"
+                :key="index"
+                class=""
+                cols="12"
+                sm="12"
+                md="12"
+                lg="12"
+                xl="12"
+              >
+                <div>
+                  <b-card
+                    overlay
+                    :img-src="item.img"
+                    img-alt="Card Image"
+                    text-variant="white"
+                    title=""
+                    sub-title=""
+                    img-height="180"
+                  >
+                    <b-card-text text-tag="h5" style="margin-top:90px;">
+                      {{ item.title }}
+                    </b-card-text>
+                  </b-card>
+                </div>
+              </b-col>
+            </b-row>
+            <b-row no-gutters>
+              <b-col
+                v-for="(item, index) in noticeBoard.slice(1, 3)"
+                :key="index"
+                class="p-md-1 pt-md-2 mb-2 mt-2 my-md-0 my-lg-0 my-xl-0 "
+                cols="12"
+                sm="12"
+                md="6"
+                lg="6"
+                xl="6"
+              >
+                <div>
+                  <b-card
+                    overlay
+                    :img-src="item.img"
+                    img-alt="Card Image"
+                    text-variant="white"
+                    title=""
+                    sub-title=""
+                    img-height="174"
+                  >
+                    <b-card-text text-tag="h5" style="margin-top:80px;">
+                      {{ item.title }}
+                    </b-card-text>
+                  </b-card>
+                </div></b-col
+              >
+            </b-row>
+          </div>
         </b-col>
         <!-- Notice Board End -->
       </b-row>
@@ -132,35 +142,22 @@
               <strong>Photo</strong>
             </h5>
           </div>
-          <div class="latest-home-card p-3">
+          <div
+            v-for="(item, index) in photo.slice(0, 2)"
+            :key="index"
+            class="latest-home-card p-3"
+          >
             <b-card no-body>
               <b-card-img
-                src="https://placekitten.com/1000/300"
+                :src="item.img"
                 alt="Card image"
                 height="170"
               ></b-card-img>
               <p class="text-muted mt-3 ml-2" style="font-size:16px;">
-                12-11-2101
+                {{ item.relaseDate }}
               </p>
               <h5 class=" ml-2">
-                <strong
-                  >Game Changing Virtual Reality Console Hits the Market</strong
-                >
-              </h5>
-            </b-card>
-            <b-card class="mt-4" no-body>
-              <b-card-img
-                src="https://placekitten.com/1000/300"
-                alt="Card image"
-                height="170"
-              ></b-card-img>
-              <p class="text-muted mt-3 ml-2" style="font-size:16px;">
-                12-11-2101
-              </p>
-              <h5 class="ml-2">
-                <strong
-                  >Game Changing Virtual Reality Console Hits the Market</strong
-                >
+                <strong>{{ item.title }}</strong>
               </h5>
             </b-card>
           </div>
@@ -170,22 +167,21 @@
             <div>
               <b-list-group>
                 <b-list-group-item
+                  v-for="(item, index) in photo.slice(2, 4)"
+                  :key="index"
                   class="custom-list-item"
-                  v-for="i in 4"
-                  :key="i"
                 >
                   <div class="d-flex">
                     <div>
                       <b-img-lazy
                         class="custom-latest-image"
-                        :src="require('~/static/brand.png')"
+                        :src="item.img"
                         alt="Image 1"
                       ></b-img-lazy>
                     </div>
                     <div class="custom-latest-text">
-                      This is a sample title for latest div.This will show on
-                      right
-                      <p class="mt-4 text-muted">2012-7-90</p>
+                      {{ item.title }}
+                      <p class="mt-4 text-muted">{{ item.release_date }}</p>
                     </div>
                   </div>
                   <hr class="m-0 p-0" />
@@ -212,19 +208,20 @@
                 <strong>Academic Info</strong>
               </h5>
             </div>
-            <b-card no-body>
+            <b-card  v-for="(item, index) in academicInfo.slice(0, 1)"
+                  :key="index"  no-body>
               <b-card-img
-                src="https://placekitten.com/1000/300"
+                :src="item.img"
                 alt="Card image"
                 height="170"
               ></b-card-img>
 
               <p class="text-muted mt-3 ml-2" style="font-size:16px;">
-                12-11-2101
+                {{item.release_date }}
               </p>
               <h5 class="pb-2 pr-2 ml-2">
                 <strong
-                  >Game Changing Virtual Reality Console Hits the Market</strong
+                  >{{ item.title }}</strong
                 >
               </h5>
             </b-card>
@@ -233,21 +230,20 @@
                 <b-list-group style="background-color:#ffff">
                   <b-list-group-item
                     style="border:none;margin-bottom:18px;"
-                    v-for="i in 2"
-                    :key="i"
+                     v-for="(item, index) in photo.slice(1, 4)"
+                  :key="index"
                   >
                     <div class="d-flex">
                       <div>
                         <b-img-lazy
                           class="custom-latest-image"
-                          :src="require('~/static/brand.png')"
+                          :src="item.img"
                           alt="Image 1"
                         ></b-img-lazy>
                       </div>
                       <div class="custom-latest-text">
-                        This is a sample title for latest div.This will show on
-                        right
-                        <p class="mt-4 text-muted">2012-7-90</p>
+                        {{item.title}}
+                        <p class="mt-4 text-muted">{{ item. release_date}}</p>
                       </div>
                     </div>
                     <hr class="m-0 p-0" />
@@ -359,17 +355,40 @@ export default {
     NavBar,
     Carousel,
     VideoPlayer
+  },
+  data() {
+    return {
+      noticeBoard: [],
+      photo: [],
+      academicInfo : []
+    };
+  },
+  async fetch() {
+    // get notice board
+    await this.$axios
+      .$get(process.env.baseUrl + "/home_notice")
+      .then(posts => (this.noticeBoard = posts.results));
+
+    // get photo board
+    await this.$axios
+      .$get(process.env.baseUrl + "/photo_views_home")
+      .then(posts => (this.photo = posts.results));
+
+       await this.$axios
+      .$get(process.env.baseUrl + "/Academic_Infos_views_home")
+      .then(posts => (this.academicInfo = posts.results));
   }
+
 };
 </script>
 <style scoped>
-.side-panel {
+/* .side-panel {
   top: 0;
   position: sticky;
   position: -webkit-sticky;
   z-index: 20;
   border-right: solid 0.5px rgba(0, 0, 0, 0.2);
-}
+} */
 @media (min-width: 576px) {
   .photo-section-two {
     margin-top: 53px;

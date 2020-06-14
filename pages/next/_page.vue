@@ -1,9 +1,14 @@
 <template>
   <div>
-    <NavBar />
+    <div class="side-panel">
+      <NavBar />
+    </div>
     <b-container>
       <b-row>
-        <b-col class="mt-4 " cols="12" sm="12" md="12" lg="12" xl="12">
+        <b-col cols="12" sm="12" md="12" lg="12" xl="12">
+          <Carousel />
+        </b-col>
+        <b-col class="mt-4 px-4 " cols="12" sm="12" md="12" lg="12" xl="12">
           <b-card class="shadow-sm">
             <h1 class="title">{{ this.$route.params.page }}</h1>
           </b-card>
@@ -14,9 +19,9 @@
           class="p-4"
           cols="12"
           sm="6"
-          md="4"
-          lg="4"
-          xl="4"
+          md="3"
+          lg="3"
+          xl="3"
         >
           <CommonCard
             :imgSrc="item.img"
@@ -31,6 +36,7 @@
 
 <script>
 import CommonCard from "@/components/CommonCard.vue";
+import Carousel from "@/components/Carousel.vue";
 
 import NavBar from "@/components/NavBar.vue";
 export default {
@@ -41,12 +47,13 @@ export default {
   },
   components: {
     NavBar,
+    Carousel,
     CommonCard
   },
   async fetch() {
     if (this.$route.params.page == "Notice Board") {
       await this.$axios
-        .$get(process.env.baseUrl)
+        .$get(process.env.baseUrl + "/notice_bord")
         .then(posts => (this.Data = posts.results));
     } else if (this.$route.params.page == "Photo") {
       await this.$axios

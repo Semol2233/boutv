@@ -10,8 +10,8 @@
       <b-container>
         <b-navbar-brand to="/"
           ><b-img
-            style="height:75px; width:80px;"
-            :src="require('~/static/brand.png')"
+            style="height:75px; width:120px; margin-left: -23px;"
+            :src="require('~/static/logore-1.png')"
           ></b-img>
         </b-navbar-brand>
         <b-navbar-toggle target="sidebar-backdrop"></b-navbar-toggle>
