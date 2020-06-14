@@ -48,12 +48,12 @@ export default {
   border: none !important;
   cursor: pointer;
   background-color: #fafafa;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .custom-card-text-date {
-  margin-top: 10px;
+  margin-top: 5px;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 15px;
   text-transform: uppercase;
   margin-bottom: 0px !important;
 }

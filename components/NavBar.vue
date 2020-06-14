@@ -10,7 +10,7 @@
       <b-container>
         <b-navbar-brand to="/"
           ><b-img
-            style="height:75px; width:120px; margin-left: -23px;"
+            style="height:75px; width:203px; margin-left: -23px;"
             :src="require('~/static/logore-1.png')"
           ></b-img>
         </b-navbar-brand>

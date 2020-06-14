@@ -4,11 +4,11 @@
       <NavBar />
     </div>
     <b-container>
-      <b-row>
-        <b-col cols="12" sm="12" md="12" lg="12" xl="12">
+      <b-row no-gutters>
+        <b-col cols="12" class="p-0 m-0" sm="12" md="12" lg="12" xl="12">
           <Carousel />
         </b-col>
-        <b-col class="mt-4 px-4 " cols="12" sm="12" md="12" lg="12" xl="12">
+        <b-col class="mt-4 px-2 " cols="12" sm="12" md="12" lg="12" xl="12">
           <b-card class="shadow-sm">
             <h1 class="title">{{ this.$route.params.page }}</h1>
           </b-card>
@@ -16,7 +16,9 @@
         <b-col
           v-for="(item, index) in Data"
           :key="index"
-          class="p-4"
+          class="p-2
+          mt-3
+          "
           cols="12"
           sm="6"
           md="3"

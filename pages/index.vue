@@ -127,7 +127,7 @@
         <!-- Notice Board End -->
       </b-row>
       <b-row no-gutters>
-        <!-- Photo Start -->
+        <!-- Academic Start -->
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
           <div class="d-flex" style="margin-bottom:10px;">
             <b-img
@@ -139,11 +139,11 @@
             >
             </b-img>
             <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Photo</strong>
+              <strong>Academic Info</strong>
             </h5>
           </div>
           <div
-            v-for="(item, index) in photo.slice(0, 2)"
+            v-for="(item, index) in academicInfo.slice(0, 2)"
             :key="index"
             class="latest-home-card p-3"
           >
@@ -167,7 +167,7 @@
             <div>
               <b-list-group>
                 <b-list-group-item
-                  v-for="(item, index) in photo.slice(2, 4)"
+                  v-for="(item, index) in academicInfo.slice(2, 4)"
                   :key="index"
                   class="custom-list-item"
                 >
@@ -190,9 +190,9 @@
             </div>
           </div>
         </b-col>
-        <!-- Photo End -->
+        <!-- Academic End -->
 
-        <!-- Academic Info Start -->
+        <!-- Photo Info Start -->
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
           <div class="ml-4">
             <div class="d-flex " style="margin-bottom:10px;">
@@ -205,11 +205,14 @@
               >
               </b-img>
               <h5 style="color:#222;" class="ml-2 mt-2">
-                <strong>Academic Info</strong>
+                <strong>Photo</strong>
               </h5>
             </div>
-            <b-card  v-for="(item, index) in academicInfo.slice(0, 1)"
-                  :key="index"  no-body>
+            <b-card
+              v-for="(item, index) in photo.slice(0, 1)"
+              :key="index"
+              no-body
+            >
               <b-card-img
                 :src="item.img"
                 alt="Card image"
@@ -217,12 +220,10 @@
               ></b-card-img>
 
               <p class="text-muted mt-3 ml-2" style="font-size:16px;">
-                {{item.release_date }}
+                {{ item.release_date }}
               </p>
               <h5 class="pb-2 pr-2 ml-2">
-                <strong
-                  >{{ item.title }}</strong
-                >
+                <strong>{{ item.title }}</strong>
               </h5>
             </b-card>
             <div class="mt-4">
@@ -230,8 +231,8 @@
                 <b-list-group style="background-color:#ffff">
                   <b-list-group-item
                     style="border:none;margin-bottom:18px;"
-                     v-for="(item, index) in photo.slice(1, 4)"
-                  :key="index"
+                    v-for="(item, index) in photo.slice(1, 4)"
+                    :key="index"
                   >
                     <div class="d-flex">
                       <div>
@@ -242,8 +243,8 @@
                         ></b-img-lazy>
                       </div>
                       <div class="custom-latest-text">
-                        {{item.title}}
-                        <p class="mt-4 text-muted">{{ item. release_date}}</p>
+                        {{ item.title }}
+                        <p class="mt-4 text-muted">{{ item.release_date }}</p>
                       </div>
                     </div>
                     <hr class="m-0 p-0" />
@@ -253,7 +254,7 @@
             </div>
           </div>
         </b-col>
-        <!-- Academic Info End -->
+        <!-- Photo Info End -->
       </b-row>
       <b-row class="mt-4">
         <!-- Class Video Start -->
@@ -360,7 +361,7 @@ export default {
     return {
       noticeBoard: [],
       photo: [],
-      academicInfo : []
+      academicInfo: []
     };
   },
   async fetch() {
@@ -374,11 +375,10 @@ export default {
       .$get(process.env.baseUrl + "/photo_views_home")
       .then(posts => (this.photo = posts.results));
 
-       await this.$axios
+    await this.$axios
       .$get(process.env.baseUrl + "/Academic_Infos_views_home")
       .then(posts => (this.academicInfo = posts.results));
   }
-
 };
 </script>
 <style scoped>
