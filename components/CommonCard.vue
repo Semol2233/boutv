@@ -9,7 +9,7 @@
           height="165"
           style="border-radius: 10px;"
         ></b-card-img-lazy>
-        <b-card-text text-tag="h6" class="custom-card-text-title">{{
+        <b-card-text text-tag="h6" class=" mt-2 custom-card-text-title">{{
           title
         }}</b-card-text>
 
