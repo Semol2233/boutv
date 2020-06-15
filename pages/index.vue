@@ -54,7 +54,7 @@
             </div>
           </div>
           <client-only>
-            <VideoPlayer />
+            <MyVideoPlayer />
           </client-only>
         </b-col>
         <!-- Live Class End -->
@@ -94,9 +94,17 @@
                 lg="12"
                 xl="12"
               >
+                <b-modal hide-footer size="xl" :id="'modal-nb-1' + index">
+                  <b-card no-body :img-src="item.img">
+                    <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                    <p class="text-muted ml-4">{{ item.release_date }}</p>
+                  </b-card>
+                </b-modal>
+
                 <div>
                   <nuxt-link to="#">
                     <b-card
+                      v-b-modal="'modal-nb-1' + index"
                       overlay
                       :img-src="item.img"
                       img-alt="Card Image"
@@ -124,22 +132,30 @@
                 lg="6"
                 xl="6"
               >
+                <b-modal hide-footer size="xl" :id="'modal-nb-2' + index">
+                  <b-card no-body :img-src="item.img">
+                    <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                    <p class="text-muted ml-4">{{ item.release_date }}</p>
+                  </b-card>
+                </b-modal>
+
                 <div>
-                  <nuxt-link to="">
-                    <b-card
-                      overlay
-                      :img-src="item.img"
-                      img-alt="Card Image"
-                      text-variant="white"
-                      title=""
-                      sub-title=""
-                      img-height="174"
-                    >
-                      <b-card-text text-tag="h5" style="margin-top:80px;">
-                        {{ item.title }}
-                      </b-card-text>
-                    </b-card>
-                  </nuxt-link>
+                  <!-- <nuxt-link to=""> -->
+                  <b-card
+                    overlay
+                    v-b-modal="'modal-nb-2' + index"
+                    :img-src="item.img"
+                    img-alt="Card Image"
+                    text-variant="white"
+                    title=""
+                    sub-title=""
+                    img-height="174"
+                  >
+                    <b-card-text text-tag="h5" style="margin-top:80px;">
+                      {{ item.title }}
+                    </b-card-text>
+                  </b-card>
+                  <!-- </nuxt-link> -->
                 </div></b-col
               >
             </b-row>
@@ -176,50 +192,65 @@
             :key="index"
             class="latest-home-card p-3"
           >
-            <nuxt-link to="">
-              <b-card no-body>
-                <b-card-img
-                  :src="item.img"
-                  alt="Card image"
-                  height="170"
-                ></b-card-img>
-                <p class="text-muted mt-1 ml-2" style="font-size:15px;">
-                  {{ item.release_date }}
-                </p>
-                <h5 class=" ml-2">
-                  <strong>{{ item.title.slice(0, 29) + ".." }}</strong>
-                </h5>
+            <b-modal hide-footer size="xl" :id="'modal-ai-1' + index">
+              <b-card no-body :img-src="item.img">
+                <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                <p class="text-muted ml-4">{{ item.release_date }}</p>
               </b-card>
-            </nuxt-link>
+            </b-modal>
+
+            <!-- <nuxt-link to=""> -->
+            <b-card no-body>
+              <b-card-img
+                v-b-modal="'modal-ai-1' + index"
+                :src="item.img"
+                alt="Card image"
+                height="170"
+              ></b-card-img>
+              <p class="text-muted mt-1 ml-2" style="font-size:15px;">
+                {{ item.release_date }}
+              </p>
+              <h5 class=" ml-2">
+                <strong>{{ item.title.slice(0, 29) + ".." }}</strong>
+              </h5>
+            </b-card>
+            <!-- </nuxt-link> -->
           </div>
         </b-col>
         <b-col class="mb-4" cols="12" sm="6" md="4" lg="4" xl="4">
           <div class="latest-home-card photo-section-two">
             <div>
-              <nuxt-link to="">
-                <b-list-group>
-                  <b-list-group-item
-                    v-for="(item, index) in academicInfo.slice(2, 6)"
-                    :key="index"
-                    class="custom-list-item"
-                  >
-                    <div class="d-flex">
-                      <div>
-                        <b-img-lazy
-                          class="custom-latest-image"
-                          :src="item.img"
-                          alt="Image 1"
-                        ></b-img-lazy>
-                      </div>
-                      <div class="custom-latest-text">
-                        {{ item.title.slice(0, 30) + ".." }}
-                        <p class="mt-4 text-muted">{{ item.release_date }}</p>
-                      </div>
+              <!-- <nuxt-link to=""> -->
+              <b-list-group>
+                <b-list-group-item
+                  v-for="(item, index) in academicInfo.slice(2, 6)"
+                  :key="index"
+                  class="custom-list-item"
+                >
+                  <b-modal hide-footer size="xl" :id="'modal-ai-2' + index">
+                    <b-card no-body :img-src="item.img">
+                      <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                      <p class="text-muted ml-4">{{ item.release_date }}</p>
+                    </b-card>
+                  </b-modal>
+
+                  <div v-b-modal="'modal-ai-2' + index" class="d-flex">
+                    <div>
+                      <b-img-lazy
+                        class="custom-latest-image"
+                        :src="item.img"
+                        alt="Image 1"
+                      ></b-img-lazy>
                     </div>
-                    <hr class="m-0 p-0" />
-                  </b-list-group-item>
-                </b-list-group>
-              </nuxt-link>
+                    <div class="custom-latest-text">
+                      {{ item.title.slice(0, 30) + ".." }}
+                      <p class="mt-4 text-muted">{{ item.release_date }}</p>
+                    </div>
+                  </div>
+                  <hr class="m-0 p-0" />
+                </b-list-group-item>
+              </b-list-group>
+              <!-- </nuxt-link> -->
             </div>
           </div>
         </b-col>
@@ -286,7 +317,7 @@
                     v-for="(item, index) in photo.slice(1, 4)"
                     :key="index"
                   >
-                    <b-modal ok-only size="xl" :id="'modal-photo' + index">
+                    <b-modal hide-footer size="xl" :id="'modal-photo' + index">
                       <b-card no-body :img-src="item.img">
                         <h3 class="ml-4 mt-2">{{ item.title }}</h3>
                         <p class="text-muted ml-4">{{ item.release_date }}</p>
@@ -342,74 +373,40 @@
         </b-col>
         <b-col
           class="mb-4"
-          v-for="i in 3"
-          :key="i"
+          v-for="(item, index) in classNote"
+          :key="index"
           cols="12"
           sm="6"
           md="4"
           lg="4"
           xl="4"
         >
-          <nuxt-link to="">
-            <b-card no-body>
-              <b-card-img
-                src="https://placekitten.com/1000/300"
-                alt="Card image"
-                height="170"
-              ></b-card-img>
-              <p class="text-muted mt-1 ml-3" style="font-size:15px;">
-                12-11-2101
-              </p>
-              <h5 class="ml-3">
-                <strong
-                  >Game Changing Virtual Reality Console Hits the Market</strong
-                >
-              </h5>
+          <b-modal hide-footer size="xl" :id="'modal-classNote' + index">
+            <b-card no-body :img-src="item.document">
+              <p class="text-muted ml-4">{{ item.release_date }}</p>
+              <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+              <p class="ml-4">{{ item.details }}</p>
             </b-card>
-          </nuxt-link>
-        </b-col>
-        <!-- Class Video End -->
+          </b-modal>
 
-        <!-- Contact -->
-        <!-- <b-col
-          offset-md="4"
-          offset-lg="4"
-          offset-xl="4"
-          cols="12"
-          sm="6"
-          md="4"
-          lg="4"
-          xl="4"
-        >
-          <div class="d-flex " style="margin-bottom:10px;">
-            <b-img
-              style="background-color: #343a40; padding:5px"
-              height="43"
-              width="43"
-              class="rounded"
-              :src="require('~/static/icons/c.png')"
-            >
-            </b-img>
-            <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Contact</strong>
-            </h5>
-          </div>
+          <!-- <nuxt-link to=""> -->
 
           <b-card no-body>
             <b-card-img
-              src="https://placekitten.com/1000/300"
+              v-b-modal="'modal-classNote' + index"
+              :src="item.document"
               alt="Card image"
               height="170"
             ></b-card-img>
-            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-            <h5 class="">
-              <strong
-                >Game Changing Virtual Reality Console Hits the Market</strong
-              >
+            <p class="text-muted mt-1 ml-3" style="font-size:15px;">
+              {{ item.release_date }}
+            </p>
+            <h5 class="ml-3">
+              <strong>{{ item.title }}</strong>
             </h5>
           </b-card>
-        </b-col> -->
-        <!-- Contact End -->
+          <!-- </nuxt-link> -->
+        </b-col>
       </b-row>
     </b-container>
   </div>
@@ -417,20 +414,21 @@
 
 <script>
 import NavBar from "@/components/NavBar";
-import VideoPlayer from "@/components/VideoPlayer";
+import MyVideoPlayer from "@/components/MyVideoPlayer";
 import Carousel from "@/components/Carousel";
 
 export default {
   components: {
     NavBar,
     Carousel,
-    VideoPlayer
+    MyVideoPlayer
   },
   data() {
     return {
       noticeBoard: [],
       photo: [],
-      academicInfo: []
+      academicInfo: [],
+      classNote: []
     };
   },
   async fetch() {
@@ -444,9 +442,14 @@ export default {
       .$get(process.env.baseUrl + "/photo_views_home")
       .then(posts => (this.photo = posts.results));
 
+    // academic Info
     await this.$axios
       .$get(process.env.baseUrl + "/Academic_Infos_views_home")
       .then(posts => (this.academicInfo = posts.results));
+    // class note
+    await this.$axios
+      .$get(process.env.baseUrl + "/class_note_seri_views_home")
+      .then(posts => (this.classNote = posts.results));
   }
 };
 </script>

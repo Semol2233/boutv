@@ -23,19 +23,19 @@
           lg="3"
           xl="3"
         >
-          <div v-if="showModal">
-            <b-modal
-              ok-title="close"
-              ok-only
-              size="xl"
-              :id="'modal-photo' + index"
-            >
-              <b-card no-body :img-src="item.img">
-                <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                <p class="text-muted ml-4">{{ item.release_date }}</p>
-              </b-card>
-            </b-modal>
-          </div>
+          <!-- <div v-if="showModal"> -->
+          <b-modal hide-footer size="xl" :id="'modal-photo' + index">
+            <b-card v-if="classNote" no-body :img-src="item.document">
+              <p class="ml-4 text-muted mt-2">{{ item.release_date }}</p>
+              <h3 class="ml-4">{{ item.title }}</h3>
+              <p class="ml-4">{{ item.details }}</p>
+            </b-card>
+            <b-card v-else no-body :img-src="item.img">
+              <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+              <p class="text-muted ml-4">{{ item.release_date }}</p>
+            </b-card>
+          </b-modal>
+          <!-- </div> -->
           <CommonCard
             v-b-modal="'modal-photo' + index"
             :imgSrc="item.img"
@@ -57,6 +57,7 @@ export default {
   data() {
     return {
       showModal: false,
+      classNote: false,
       Data: []
     };
   },
@@ -79,6 +80,11 @@ export default {
       await this.$axios
         .$get(process.env.baseUrl + "/Academic_Info")
         .then(posts => (this.Data = posts.results));
+    } else if (this.$route.params.page == "Class Note") {
+      await this.$axios
+        .$get(process.env.baseUrl + "/classnote")
+        .then(posts => (this.Data = posts.results));
+      this.classNote = true;
     }
   }
 };
