@@ -13,7 +13,16 @@
         </b-col>
         <b-col cols="12" sm="12" md="12" lg="12" xl="12">
           <client-only>
-            <VideoPlayer />
+            <div class="liveView">
+              <video-player
+                class="vjs-custom-skin videojs"
+                ref="videoPlayer"
+                :options="playerOptions"
+                @ready="onPlayerReadied"
+                @timeupdate="onTimeupdate"
+              >
+              </video-player>
+            </div>
           </client-only>
         </b-col>
       </b-row>
@@ -22,30 +31,48 @@
 </template>
 
 <script>
-import VideoPlayer from "@/components/VideoPlayer.vue";
 import Carousel from "@/components/Carousel.vue";
 
 import NavBar from "@/components/NavBar.vue";
 export default {
   data() {
     return {
-      videoData: []
+      videoData: [],
+      initialized: false,
+      playerOptions: {
+        autoplay: false,
+        controls: true,
+        techOrder: ["flash", "html5"],
+        sourceOrder: true,
+        flash: { hls: { withCredentials: false } },
+        html5: { hls: { withCredentials: false } },
+        sources: [
+          {
+            withCredentials: false,
+            type: "application/x-mpegURL",
+            src: this.videoData
+          }
+        ],
+        poster: "~/static/brand.png"
+      }
     };
   },
   components: {
     NavBar,
-    Carousel,
-    VideoPlayer
+    Carousel
   },
   async fetch() {
     await this.$axios
       .$get(process.env.baseUrl + "/livetvfedd")
-      .then(posts => (this.videoData = posts.results));
+      .then(posts => (this.videoData = posts.results.live_tv_url));
   }
 };
 </script>
 
 <style scoped>
+.liveView {
+  position: relative;
+}
 .title {
   text-align: center;
   text-transform: uppercase;

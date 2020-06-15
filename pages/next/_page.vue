@@ -23,7 +23,21 @@
           lg="3"
           xl="3"
         >
+          <div v-if="showModal">
+            <b-modal
+              ok-title="close"
+              ok-only
+              size="xl"
+              :id="'modal-photo' + index"
+            >
+              <b-card no-body :img-src="item.img">
+                <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                <p class="text-muted ml-4">{{ item.release_date }}</p>
+              </b-card>
+            </b-modal>
+          </div>
           <CommonCard
+            v-b-modal="'modal-photo' + index"
             :imgSrc="item.img"
             :title="item.title"
             :relaseDate="item.release_date"
@@ -42,6 +56,7 @@ import NavBar from "@/components/NavBar.vue";
 export default {
   data() {
     return {
+      showModal: false,
       Data: []
     };
   },
@@ -59,6 +74,7 @@ export default {
       await this.$axios
         .$get(process.env.baseUrl + "/photo")
         .then(posts => (this.Data = posts.results));
+      this.showModal = true;
     } else if (this.$route.params.page == "Academic Info") {
       await this.$axios
         .$get(process.env.baseUrl + "/Academic_Info")

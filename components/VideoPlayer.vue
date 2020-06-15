@@ -30,8 +30,7 @@ export default {
           {
             withCredentials: false,
             type: "application/x-mpegURL",
-            src:
-              "https://beta-cdn.appv.jagobd.com:444/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/somoyt000011226615544544.stream/playlist.m3u8"
+            src: ""
           }
         ],
         poster: "~/static/brand.png"

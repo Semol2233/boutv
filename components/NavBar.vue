@@ -54,7 +54,10 @@
                 href="#"
                 >Class Note</b-nav-item
               >
-              <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
+              <b-nav-item
+                class="nav-item-five mr-2 p-1"
+                active
+                href="https://www.bou.edu.bd/"
                 >Contact</b-nav-item
               >
             </b-navbar-nav>
