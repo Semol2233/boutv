@@ -1,21 +1,17 @@
 <template>
   <div class="header">
-    <div class="logo-top">
-            <b-img class="" src="~/static/bn3.JPG"></b-img>
-    </div>
     <b-navbar
       id="my-nav"
       class="my-custom-nav"
       toggleable="sm"
       type="light"
-      style="background-color:white;"
-      :fixed="fixed"
-    > 
+      style="background-color:#fafafa;"
+    >
       <b-container>
-        <b-navbar-brand href="#"
+        <b-navbar-brand to="/"
           ><b-img
-            style="height:80px; width:80px;"
-            :src="require('~/static/brand.png')"
+            style="height:75px; width:203px; margin-left: -40px;"
+            :src="require('~/static/logore-1.png')"
           ></b-img>
         </b-navbar-brand>
         <b-navbar-toggle target="sidebar-backdrop"></b-navbar-toggle>
@@ -27,20 +23,36 @@
         >
           <div class="px-3 py-2">
             <b-navbar-nav v-if="!showInputbar">
-              <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
+              <b-nav-item
+                :to="'/next/' + 'Notice Board'"
+                class="nav-item-one mr-2 p-1"
+                active
+                href="#"
                 >Notice Board</b-nav-item
               >
               <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
                 >Live Class</b-nav-item
               >
-              <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
+              <b-nav-item
+                :to="'/next/' + 'Photo'"
+                class="nav-item-three mr-2 p-1"
+                active
+                href="#"
                 >Photo</b-nav-item
               >
-              <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
+              <b-nav-item
+                :to="'/next/' + 'Academic Info'"
+                class="nav-item-four mr-2 p-1"
+                active
+                href="#"
                 >Academic Info</b-nav-item
               >
-              <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
-                >Class Video</b-nav-item
+              <b-nav-item
+                :to="'/next/' + 'Class Note'"
+                class="nav-item-five mr-2 p-1"
+                active
+                href="#"
+                >Class Note</b-nav-item
               >
               <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
                 >Contact</b-nav-item
@@ -78,20 +90,40 @@
         </b-sidebar>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto nav-items" v-if="!showInputbar">
-            <b-nav-item class="nav-item-one mr-2 p-1" active href="#"
+            <b-nav-item
+              :to="'/next/' + 'Notice Board'"
+              class="nav-item-one mr-2 p-1"
+              active
+              href="#"
               >Notice Board</b-nav-item
             >
-            <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
+            <b-nav-item
+              to="/live-class"
+              class="nav-item-two mr-2 p-1"
+              active
+              href="#"
               >Live Class</b-nav-item
             >
-            <b-nav-item class="nav-item-three mr-2 p-1" active href="#"
+            <b-nav-item
+              :to="'/next/' + 'Photo'"
+              class="nav-item-three mr-2 p-1"
+              active
+              href="#"
               >Photo</b-nav-item
             >
-            <b-nav-item class="nav-item-four mr-2 p-1" active href="#"
+            <b-nav-item
+              :to="'/next/' + 'Academic Info'"
+              class="nav-item-four mr-2 p-1"
+              active
+              href="#"
               >Academic Info</b-nav-item
             >
-            <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
-              >Class Video</b-nav-item
+            <b-nav-item
+              :to="'/next/' + 'Class Note'"
+              class="nav-item-five mr-2 p-1"
+              active
+              href="#"
+              >Class Note</b-nav-item
             >
             <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
               >Contact</b-nav-item
@@ -154,27 +186,31 @@ export default {
         var sticky = header.offsetTop;
 
         if (window.pageYOffset > sticky) {
-          this.fixed = "top";
-          this.sticky = false;
-
+          // this.fixed = "top";
+          // this.sticky = false;
           // header.classList.add("sticky");
         } else {
-          this.sticky = true;
+          // this.sticky = true;
           // header.classList.add("sticky-animation");
-          this.fixed = null;
-          header.classList.remove("sticky");
+          // this.fixed = null;
+          // header.classList.remove("sticky");
         }
       };
     }
   },
   mounted() {
-    this.scroll();
+    // this.scroll();
   }
 };
 </script>
 
 
 <style scoped>
+@media (min-width: 576px) and (max-width: 1199px) {
+  .nav-items {
+    font-size: 15px;
+  }
+}
 /* #my-nav {
   overflow: visible;
 } */
@@ -282,7 +318,7 @@ export default {
 
 @media (min-width: 576px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
   .my-custom-nav {
-    height: 100px;
+    height: 85px;
   }
 
   .nav-item-one :hover {
@@ -314,11 +350,6 @@ export default {
     border-bottom: 3px solid rgb(77, 178, 236);
     padding-bottom: 3px;
   }
-}
-
-
-.jdachdccdc{
-  width: 276px;
 }
 
 @media (min-width: 786px) {
@@ -357,11 +388,5 @@ export default {
     border-bottom: 3px solid rgb(77, 178, 236);
     padding-bottom: 3px;
   }
-}
-
-.center{
-  margin: auto;
-  width: 20%;
-  padding: 5px; 
 }
 </style>

@@ -12,13 +12,10 @@
 </template>
 
 <script>
-// import Switcher from '@/components/Switcher'
 const isProduction = process.env.NODE_ENV === "production";
 export default {
   name: "live",
-  components: {
-    // Switcher
-  },
+  components: {},
   data() {
     return {
       initialized: false,
@@ -33,7 +30,8 @@ export default {
           {
             withCredentials: false,
             type: "application/x-mpegURL",
-            src: ""
+            src:
+              "https://beta-cdn.appv.jagobd.com:444/cZMLmVyX3RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/somoyt000011226615544544.stream/playlist.m3u8"
           }
         ],
         poster: "~/static/brand.png"
@@ -52,10 +50,7 @@ export default {
         this.currentTech = this.player.techName_;
       }
     },
-    // record current time
-    onTimeupdate(e) {
-      // console.log("currentTime", e.cache_.currentTime);
-    }
+    onTimeupdate(e) {}
   }
 };
 </script>
@@ -63,23 +58,5 @@ export default {
 <style scoped>
 .liveView {
   position: relative;
-}
-.selectWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  line-height: 30px;
-  margin: 20px;
-  vertical-align: baseline;
-}
-.inputWrapper {
-  width: 500px;
-  margin: 0 auto;
-}
-.buttonWrapper {
-  text-align: center;
-}
-.vjs-custom-skin {
 }
 </style>
