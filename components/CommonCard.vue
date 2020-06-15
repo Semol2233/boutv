@@ -9,7 +9,7 @@
           height="165"
           style="border-radius: 10px;"
         ></b-card-img-lazy>
-        <b-card-text text-tag="h6" class=" mt-2 custom-card-text-title">{{
+        <b-card-text text-tag="h6" class="custom-card-text-title">{{
           title
         }}</b-card-text>
 
@@ -51,14 +51,14 @@ export default {
   margin-bottom: 20px;
 }
 .custom-card-text-date {
-  margin-top: 5px;
+  margin-top: 0px;
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase;
   margin-bottom: 0px !important;
 }
 .custom-card-text-title {
-  margin-top: 0px !important;
+  margin-top: 5px;
   color: rgb(27, 30, 33);
   font-weight: 400;
   font-size: 18px;

@@ -10,7 +10,7 @@
       <b-container>
         <b-navbar-brand to="/"
           ><b-img
-            style="height:75px; width:203px; margin-left: -23px;"
+            style="height:75px; width:203px; margin-left: -40px;"
             :src="require('~/static/logore-1.png')"
           ></b-img>
         </b-navbar-brand>
@@ -97,7 +97,11 @@
               href="#"
               >Notice Board</b-nav-item
             >
-            <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
+            <b-nav-item
+              to="/live-class"
+              class="nav-item-two mr-2 p-1"
+              active
+              href="#"
               >Live Class</b-nav-item
             >
             <b-nav-item
@@ -202,6 +206,11 @@ export default {
 
 
 <style scoped>
+@media (min-width: 576px) and (max-width: 1199px) {
+  .nav-items {
+    font-size: 15px;
+  }
+}
 /* #my-nav {
   overflow: visible;
 } */

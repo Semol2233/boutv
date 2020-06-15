@@ -78,19 +78,21 @@
                 xl="12"
               >
                 <div>
-                  <b-card
-                    overlay
-                    :img-src="item.img"
-                    img-alt="Card Image"
-                    text-variant="white"
-                    title=""
-                    sub-title=""
-                    img-height="180"
-                  >
-                    <b-card-text text-tag="h5" style="margin-top:90px;">
-                      {{ item.title }}
-                    </b-card-text>
-                  </b-card>
+                  <nuxt-link to="/next/Notice Board">
+                    <b-card
+                      overlay
+                      :img-src="item.img"
+                      img-alt="Card Image"
+                      text-variant="white"
+                      title=""
+                      sub-title=""
+                      img-height="180"
+                    >
+                      <b-card-text text-tag="h5" style="margin-top:90px;">
+                        {{ item.title }}
+                      </b-card-text>
+                    </b-card>
+                  </nuxt-link>
                 </div>
               </b-col>
             </b-row>
@@ -106,19 +108,21 @@
                 xl="6"
               >
                 <div>
-                  <b-card
-                    overlay
-                    :img-src="item.img"
-                    img-alt="Card Image"
-                    text-variant="white"
-                    title=""
-                    sub-title=""
-                    img-height="174"
-                  >
-                    <b-card-text text-tag="h5" style="margin-top:80px;">
-                      {{ item.title }}
-                    </b-card-text>
-                  </b-card>
+                  <nuxt-link to="/next/Notice Board">
+                    <b-card
+                      overlay
+                      :img-src="item.img"
+                      img-alt="Card Image"
+                      text-variant="white"
+                      title=""
+                      sub-title=""
+                      img-height="174"
+                    >
+                      <b-card-text text-tag="h5" style="margin-top:80px;">
+                        {{ item.title }}
+                      </b-card-text>
+                    </b-card>
+                  </nuxt-link>
                 </div></b-col
               >
             </b-row>
@@ -147,46 +151,50 @@
             :key="index"
             class="latest-home-card p-3"
           >
-            <b-card no-body>
-              <b-card-img
-                :src="item.img"
-                alt="Card image"
-                height="170"
-              ></b-card-img>
-              <p class="text-muted mt-3 ml-2" style="font-size:16px;">
-                {{ item.relaseDate }}
-              </p>
-              <h5 class=" ml-2">
-                <strong>{{ item.title }}</strong>
-              </h5>
-            </b-card>
+            <nuxt-link to="/next/Academic Info">
+              <b-card no-body>
+                <b-card-img
+                  :src="item.img"
+                  alt="Card image"
+                  height="170"
+                ></b-card-img>
+                <p class="text-muted mt-1 ml-2" style="font-size:15px;">
+                  {{ item.release_date }}
+                </p>
+                <h5 class=" ml-2">
+                  <strong>{{ item.title.slice(0, 29) + ".." }}</strong>
+                </h5>
+              </b-card>
+            </nuxt-link>
           </div>
         </b-col>
-        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+        <b-col class="mb-4" cols="12" sm="6" md="4" lg="4" xl="4">
           <div class="latest-home-card photo-section-two">
             <div>
-              <b-list-group>
-                <b-list-group-item
-                  v-for="(item, index) in academicInfo.slice(2, 4)"
-                  :key="index"
-                  class="custom-list-item"
-                >
-                  <div class="d-flex">
-                    <div>
-                      <b-img-lazy
-                        class="custom-latest-image"
-                        :src="item.img"
-                        alt="Image 1"
-                      ></b-img-lazy>
+              <nuxt-link to="/next/Academic Info">
+                <b-list-group>
+                  <b-list-group-item
+                    v-for="(item, index) in academicInfo.slice(2, 6)"
+                    :key="index"
+                    class="custom-list-item"
+                  >
+                    <div class="d-flex">
+                      <div>
+                        <b-img-lazy
+                          class="custom-latest-image"
+                          :src="item.img"
+                          alt="Image 1"
+                        ></b-img-lazy>
+                      </div>
+                      <div class="custom-latest-text">
+                        {{ item.title.slice(0, 30) + ".." }}
+                        <p class="mt-4 text-muted">{{ item.release_date }}</p>
+                      </div>
                     </div>
-                    <div class="custom-latest-text">
-                      {{ item.title }}
-                      <p class="mt-4 text-muted">{{ item.release_date }}</p>
-                    </div>
-                  </div>
-                  <hr class="m-0 p-0" />
-                </b-list-group-item>
-              </b-list-group>
+                    <hr class="m-0 p-0" />
+                  </b-list-group-item>
+                </b-list-group>
+              </nuxt-link>
             </div>
           </div>
         </b-col>
@@ -194,7 +202,7 @@
 
         <!-- Photo Info Start -->
         <b-col cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class="ml-4">
+          <div class="ml-md-4 ml-lg-4 ml-xl-4">
             <div class="d-flex " style="margin-bottom:10px;">
               <b-img
                 style="background-color: #343a40; padding:5px"
@@ -208,47 +216,51 @@
                 <strong>Photo</strong>
               </h5>
             </div>
-            <b-card
-              v-for="(item, index) in photo.slice(0, 1)"
-              :key="index"
-              no-body
-            >
-              <b-card-img
-                :src="item.img"
-                alt="Card image"
-                height="170"
-              ></b-card-img>
+            <nuxt-link to="/next/Photo">
+              <b-card
+                v-for="(item, index) in photo.slice(0, 1)"
+                :key="index"
+                no-body
+              >
+                <b-card-img
+                  :src="item.img"
+                  alt="Card image"
+                  height="170"
+                ></b-card-img>
 
-              <p class="text-muted mt-3 ml-2" style="font-size:16px;">
-                {{ item.release_date }}
-              </p>
-              <h5 class="pb-2 pr-2 ml-2">
-                <strong>{{ item.title }}</strong>
-              </h5>
-            </b-card>
+                <p class="text-muted mt-1 ml-2" style="font-size:15px;">
+                  {{ item.release_date }}
+                </p>
+                <h5 class="pb-2 pr-2 ml-2">
+                  <strong>{{ item.title.slice(0, 30) + ".." }}</strong>
+                </h5>
+              </b-card>
+            </nuxt-link>
             <div class="mt-4">
               <div>
                 <b-list-group style="background-color:#ffff">
-                  <b-list-group-item
-                    style="border:none;margin-bottom:18px;"
-                    v-for="(item, index) in photo.slice(1, 4)"
-                    :key="index"
-                  >
-                    <div class="d-flex">
-                      <div>
-                        <b-img-lazy
-                          class="custom-latest-image"
-                          :src="item.img"
-                          alt="Image 1"
-                        ></b-img-lazy>
+                  <nuxt-link to="/next/Photo">
+                    <b-list-group-item
+                      style="border:none;margin-bottom:23px;"
+                      v-for="(item, index) in photo.slice(1, 4)"
+                      :key="index"
+                    >
+                      <div class="d-flex">
+                        <div>
+                          <b-img-lazy
+                            class="custom-latest-image"
+                            :src="item.img"
+                            alt="Image 1"
+                          ></b-img-lazy>
+                        </div>
+                        <div class="custom-latest-text">
+                          {{ item.title.slice(0, 30) + ".." }}
+                          <p class="mt-4 text-muted">{{ item.release_date }}</p>
+                        </div>
                       </div>
-                      <div class="custom-latest-text">
-                        {{ item.title }}
-                        <p class="mt-4 text-muted">{{ item.release_date }}</p>
-                      </div>
-                    </div>
-                    <hr class="m-0 p-0" />
-                  </b-list-group-item>
+                      <hr class="m-0 p-0" />
+                    </b-list-group-item>
+                  </nuxt-link>
                 </b-list-group>
               </div>
             </div>
@@ -257,7 +269,7 @@
         <!-- Photo Info End -->
       </b-row>
       <b-row class="mt-4">
-        <!-- Class Video Start -->
+        <!-- Class note Start -->
         <b-col cols="12">
           <div class="d-flex " style="margin-bottom:10px;">
             <b-img
@@ -283,21 +295,23 @@
           lg="4"
           xl="4"
         >
-          <b-card no-body>
-            <b-card-img
-              src="https://placekitten.com/1000/300"
-              alt="Card image"
-              height="170"
-            ></b-card-img>
-            <p class="text-muted mt-3 ml-3" style="font-size:16px;">
-              12-11-2101
-            </p>
-            <h5 class="ml-3">
-              <strong
-                >Game Changing Virtual Reality Console Hits the Market</strong
-              >
-            </h5>
-          </b-card>
+          <nuxt-link to="/next/Class Note">
+            <b-card no-body>
+              <b-card-img
+                src="https://placekitten.com/1000/300"
+                alt="Card image"
+                height="170"
+              ></b-card-img>
+              <p class="text-muted mt-1 ml-3" style="font-size:15px;">
+                12-11-2101
+              </p>
+              <h5 class="ml-3">
+                <strong
+                  >Game Changing Virtual Reality Console Hits the Market</strong
+                >
+              </h5>
+            </b-card>
+          </nuxt-link>
         </b-col>
         <!-- Class Video End -->
 
@@ -417,7 +431,7 @@ export default {
 .custom-list-item {
   margin-left: 10px;
   border: none !important;
-  margin-bottom: 21px;
+  margin-bottom: 24px;
   cursor: pointer;
 }
 .custom-latest-image {
@@ -432,5 +446,9 @@ export default {
   text-align: left;
   line-height: 20px;
   font-size: 14px;
+}
+a {
+  color: black;
+  text-decoration: none;
 }
 </style>
