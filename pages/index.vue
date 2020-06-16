@@ -54,7 +54,13 @@
             </div>
           </div>
           <client-only>
-            <MyVideoPlayer />
+            <b-embed
+              style="height:88%;"
+              type="iframe"
+              aspect="4by3"
+              src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+              allowfullscreen
+            ></b-embed>
           </client-only>
         </b-col>
         <!-- Live Class End -->
@@ -473,7 +479,7 @@ export default {
 }
 .latest-home-card {
   background: #ffff;
-  box-shadow: 0 5px 0 -0.8rem rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 5px 0 -0.8rem rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.05); */
   border-radius: 5px;
 }
 .custom-latest-title {
