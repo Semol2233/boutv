@@ -70,5 +70,6 @@ export default {
   },
   env: {
     baseUrl: process.env.BASE_URL || `http://cdn.boutv.live/sdvcsdcdcsdfder43543wrfwefcsfsdvcsdcdcsdfder43543wrfwefcsf`,
+    homeCn: 'http://cdn.boutv.live/sdvcsdcdcsdfder43543wrfwefcsf'
   }
 }

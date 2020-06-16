@@ -146,8 +146,11 @@
                 type="text"
                 placeholder="Search on Voutv..."
                 class="input-search"
+                v-model="keyword"
               ></b-input>
-              <button type="submit" class="searchButton">Search</button>
+              <button type="button" @click="search" class="searchButton">
+                Search
+              </button>
             </div>
           </div>
           <!-- Right aligned nav items -->
@@ -177,7 +180,8 @@
 export default {
   data() {
     return {
-      showInputbar: false
+      showInputbar: false,
+      keyword: ""
     };
   },
   methods: {
@@ -186,6 +190,9 @@ export default {
     },
     showNavItem() {
       this.showInputbar = false;
+    },
+    search() {
+      console.log(this.keyword);
     }
   }
 };
