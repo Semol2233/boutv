@@ -25,11 +25,13 @@
         >
           <!-- <div v-if="showModal"> -->
           <b-modal hide-footer size="xl" :id="'modal-photo' + index">
-            <b-card v-if="classNote" no-body :img-src="item.document">
+            <b-card v-if="classNote" no-body :img-src="item.note_img">
               <p class="ml-4 text-muted mt-2">{{ item.release_date }}</p>
               <h3 class="ml-4">{{ item.title }}</h3>
               <p class="ml-4">{{ item.details }}</p>
+              <div class="ml-4">File : {{ item.document }}</div>
             </b-card>
+
             <b-card v-else no-body :img-src="item.img">
               <h3 class="ml-4 mt-2">{{ item.title }}</h3>
               <p class="text-muted ml-4">{{ item.release_date }}</p>
@@ -133,7 +135,7 @@ export default {
     // ClassNote
     else if (this.$route.params.page == "Class Note") {
       await this.$axios
-        .$get(process.env.baseUrl + "/classnote")
+        .$get(process.env.baseUrl + "/class_note_seri_views_home")
         .then(posts => (this.Data = posts));
       this.classNote = true;
     }

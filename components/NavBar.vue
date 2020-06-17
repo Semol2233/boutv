@@ -192,7 +192,10 @@ export default {
       this.showInputbar = false;
     },
     search() {
-      console.log(this.keyword);
+      if (this.keyword != "") {
+        this.$store.dispatch("SetSearchedKeyword", this.keyword);
+        this.$router.push("/search");
+      }
     }
   }
 };

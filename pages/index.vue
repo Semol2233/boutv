@@ -27,7 +27,7 @@
     </div>
     <!-- navbar end -->
 
-    <div v-if="!searched">
+    <div>
       <Carousel />
       <!-- Home Page Start -->
       <b-container>
@@ -394,17 +394,18 @@
             xl="4"
           >
             <b-modal hide-footer size="xl" :id="'modal-classNote' + index">
-              <b-card no-body :img-src="item.document">
+              <b-card no-body :img-src="item.note_img">
                 <p class="text-muted ml-4">{{ item.release_date }}</p>
                 <h3 class="ml-4 mt-2">{{ item.title }}</h3>
                 <p class="ml-4">{{ item.details }}</p>
+                <div class="ml-4">File: {{ item.document }}</div>
               </b-card>
             </b-modal>
 
             <b-card no-body>
               <b-card-img
                 v-b-modal="'modal-classNote' + index"
-                :src="item.document"
+                :src="item.note_img"
                 alt="Card image"
                 height="170"
               ></b-card-img>
