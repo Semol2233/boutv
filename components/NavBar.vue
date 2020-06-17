@@ -142,6 +142,7 @@
           <div v-else class="nav-s-block">
             <div class="search" id="searchb" style="display: block;">
               <b-input
+                @keyup.enter="search"
                 autocomplete="on"
                 type="text"
                 placeholder="Search on Voutv..."

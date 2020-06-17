@@ -77,11 +77,9 @@ export default {
     };
   },
   async fetch() {
-    if (this.searchKeyword != "") {
-      await this.$axios
-        .$get(process.env.search + this.searchKeyword)
-        .then(posts => (this.searchedItems = posts));
-    }
+    await this.$axios
+      .$get(process.env.search + this.searchKeyword)
+      .then(posts => (this.searchedItems = posts));
   },
   computed: mapState({
     searchKeyword: state => state.searchKeyword
