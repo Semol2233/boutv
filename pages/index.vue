@@ -1,8 +1,6 @@
 <template>
   <div>
     <!-- start Logo start -->
-
-    <!-- start logo end -->
     <b-container>
       <b-row>
         <b-col
@@ -21,96 +19,139 @@
         </b-col>
       </b-row>
     </b-container>
+    <!-- start logo end -->
+
     <!-- navbar start -->
     <div class="side-panel">
       <NavBar />
     </div>
     <!-- navbar end -->
-    <Carousel />
-    <b-container>
-      <b-row class="mb-4" no-gutters>
-        <!-- Live Class Start -->
-        <b-col class="p-1" cols="12" sm="12" md="6" lg="6" xl="6">
-          <div class="d-flex " style="margin-bottom:10px;">
-            <b-img
-              style="background-color: #343a40; padding:5px"
-              height="43"
-              width="43"
-              class="rounded"
-              :src="require('~/static/icons/lt.png')"
-            >
-            </b-img>
-            <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Live Class</strong>
-            </h5>
-          </div>
-          <client-only>
-            <VideoPlayer />
-          </client-only>
-        </b-col>
-        <!-- Live Class End -->
 
-        <!-- Notice Board Start -->
-        <b-col class="pl-1 pt-1 pb-1" cols="12" sm="12" md="6" lg="6" xl="6">
-          <div class="d-flex" style="margin-bottom:10px;">
-            <b-img
-              style="background-color: #343a40; padding:5px"
-              height="43"
-              width="43"
-              class="rounded"
-              :src="require('~/static/icons/n.png')"
-            >
-            </b-img>
-            <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Notice Board</strong>
-            </h5>
-          </div>
-          <div>
-            <b-row>
-              <b-col
-                v-for="(item, index) in noticeBoard.slice(0, 1)"
-                :key="index"
-                class=""
-                cols="12"
-                sm="12"
-                md="12"
-                lg="12"
-                xl="12"
-              >
-                <div>
-                  <nuxt-link to="/next/Notice Board">
-                    <b-card
-                      overlay
-                      :img-src="item.img"
-                      img-alt="Card Image"
-                      text-variant="white"
-                      title=""
-                      sub-title=""
-                      img-height="180"
-                    >
-                      <b-card-text text-tag="h5" style="margin-top:90px;">
-                        {{ item.title }}
-                      </b-card-text>
+    <div>
+      <Carousel />
+      <!-- Home Page Start -->
+      <b-container>
+        <b-row class="mb-4" no-gutters>
+          <!-- Live Class Start -->
+          <b-col class="p-1" cols="12" sm="12" md="6" lg="6" xl="6">
+            <div class="d-flex " style="margin-bottom:10px;">
+              <div>
+                <nuxt-link to="/live-class">
+                  <b-img
+                    style="background-color: #343a40; padding:5px"
+                    height="43"
+                    width="43"
+                    class="rounded"
+                    :src="require('~/static/icons/lt.png')"
+                  >
+                  </b-img>
+                </nuxt-link>
+              </div>
+              <div>
+                <nuxt-link to="/live-class">
+                  <h5 style="color:#222;" class="ml-2 mt-2">
+                    <strong>Live Class</strong>
+                  </h5>
+                </nuxt-link>
+              </div>
+            </div>
+            <client-only>
+              <b-embed
+                style="height:88%;"
+                type="iframe"
+                aspect="4by3"
+                src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+                allowfullscreen
+              ></b-embed>
+            </client-only>
+          </b-col>
+          <!-- Live Class End -->
+
+          <!-- Notice Board Start -->
+          <b-col class="pl-1 pt-1 pb-1" cols="12" sm="12" md="6" lg="6" xl="6">
+            <div class="d-flex" style="margin-bottom:10px;">
+              <div>
+                <nuxt-link to="/next/Notice Board"
+                  ><b-img
+                    style="background-color: #343a40; padding:5px"
+                    height="43"
+                    width="43"
+                    class="rounded"
+                    :src="require('~/static/icons/n.png')"
+                  >
+                  </b-img>
+                </nuxt-link>
+              </div>
+              <div>
+                <nuxt-link to="/next/Notice Board"
+                  ><h5 style="color:#222;" class="ml-2 mt-2">
+                    <strong>Notice Board</strong>
+                  </h5>
+                </nuxt-link>
+              </div>
+            </div>
+            <div>
+              <b-row>
+                <b-col
+                  v-for="(item, index) in noticeBoard.slice(0, 1)"
+                  :key="index"
+                  class=""
+                  cols="12"
+                  sm="12"
+                  md="12"
+                  lg="12"
+                  xl="12"
+                >
+                  <b-modal hide-footer size="xl" :id="'modal-nb-1' + index">
+                    <b-card no-body :img-src="item.img">
+                      <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                      <p class="text-muted ml-4">{{ item.release_date }}</p>
                     </b-card>
-                  </nuxt-link>
-                </div>
-              </b-col>
-            </b-row>
-            <b-row no-gutters>
-              <b-col
-                v-for="(item, index) in noticeBoard.slice(1, 3)"
-                :key="index"
-                class="p-md-1 pt-md-2 mb-2 mt-2 my-md-0 my-lg-0 my-xl-0 "
-                cols="12"
-                sm="12"
-                md="6"
-                lg="6"
-                xl="6"
-              >
-                <div>
-                  <nuxt-link to="/next/Notice Board">
+                  </b-modal>
+
+                  <div>
+                    <nuxt-link to="#">
+                      <b-card
+                        v-b-modal="'modal-nb-1' + index"
+                        overlay
+                        :img-src="item.img"
+                        img-alt="Card Image"
+                        text-variant="white"
+                        title=""
+                        sub-title=""
+                        img-height="180"
+                      >
+                        <b-card-text text-tag="h5" style="margin-top:90px;">
+                          {{ item.title }}
+                        </b-card-text>
+                      </b-card>
+                    </nuxt-link>
+                  </div>
+                </b-col>
+              </b-row>
+              <b-row no-gutters>
+                <b-col
+                  v-for="(item, index) in noticeBoard.slice(1, 3)"
+                  :key="index"
+                  class="p-md-1 pt-md-2 mb-2 mt-2 my-md-0 my-lg-0 my-xl-0 "
+                  cols="12"
+                  sm="12"
+                  md="6"
+                  lg="6"
+                  xl="6"
+                >
+                  <b-modal hide-footer size="xl" :id="'modal-nb-2' + index">
+                    <b-card no-body :img-src="item.img">
+                      <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                      <p class="text-muted ml-4">{{ item.release_date }}</p>
+                    </b-card>
+                  </b-modal>
+
+                  <div>
+                    <!-- <nuxt-link to=""> -->
                     <b-card
                       overlay
+                      v-b-modal="'modal-nb-2' + index"
                       :img-src="item.img"
                       img-alt="Card Image"
                       text-variant="white"
@@ -122,38 +163,54 @@
                         {{ item.title }}
                       </b-card-text>
                     </b-card>
-                  </nuxt-link>
-                </div></b-col
-              >
-            </b-row>
-          </div>
-        </b-col>
-        <!-- Notice Board End -->
-      </b-row>
-      <b-row no-gutters>
-        <!-- Academic Start -->
-        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class="d-flex" style="margin-bottom:10px;">
-            <b-img
-              style="background-color: #343a40; padding:5px"
-              height="43"
-              width="43"
-              class="rounded"
-              :src="require('~/static/icons/p.png')"
+                    <!-- </nuxt-link> -->
+                  </div></b-col
+                >
+              </b-row>
+            </div>
+          </b-col>
+          <!-- Notice Board End -->
+        </b-row>
+        <b-row no-gutters>
+          <!-- Academic Start -->
+          <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+            <div class="d-flex" style="margin-bottom:10px;">
+              <div>
+                <nuxt-link to="/next/Academic Info">
+                  <b-img
+                    style="background-color: #343a40; padding:5px"
+                    height="43"
+                    width="43"
+                    class="rounded"
+                    :src="require('~/static/icons/p.png')"
+                  >
+                  </b-img
+                ></nuxt-link>
+              </div>
+              <div>
+                <nuxt-link to="/next/Academic Info">
+                  <h5 style="color:#222;" class="ml-2 mt-2">
+                    <strong>Academic Info</strong>
+                  </h5></nuxt-link
+                >
+              </div>
+            </div>
+            <div
+              v-for="(item, index) in academicInfo.slice(0, 2)"
+              :key="index"
+              class="latest-home-card p-3"
             >
-            </b-img>
-            <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Academic Info</strong>
-            </h5>
-          </div>
-          <div
-            v-for="(item, index) in academicInfo.slice(0, 2)"
-            :key="index"
-            class="latest-home-card p-3"
-          >
-            <nuxt-link to="/next/Academic Info">
+              <b-modal hide-footer size="xl" :id="'modal-ai-1' + index">
+                <b-card no-body :img-src="item.img">
+                  <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                  <p class="text-muted ml-4">{{ item.release_date }}</p>
+                </b-card>
+              </b-modal>
+
+              <!-- <nuxt-link to=""> -->
               <b-card no-body>
                 <b-card-img
+                  v-b-modal="'modal-ai-1' + index"
                   :src="item.img"
                   alt="Card image"
                   height="170"
@@ -165,20 +222,27 @@
                   <strong>{{ item.title.slice(0, 29) + ".." }}</strong>
                 </h5>
               </b-card>
-            </nuxt-link>
-          </div>
-        </b-col>
-        <b-col class="mb-4" cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class="latest-home-card photo-section-two">
-            <div>
-              <nuxt-link to="/next/Academic Info">
+              <!-- </nuxt-link> -->
+            </div>
+          </b-col>
+          <b-col class="mb-4" cols="12" sm="6" md="4" lg="4" xl="4">
+            <div class="latest-home-card photo-section-two">
+              <div>
+                <!-- <nuxt-link to=""> -->
                 <b-list-group>
                   <b-list-group-item
                     v-for="(item, index) in academicInfo.slice(2, 6)"
                     :key="index"
                     class="custom-list-item"
                   >
-                    <div class="d-flex">
+                    <b-modal hide-footer size="xl" :id="'modal-ai-2' + index">
+                      <b-card no-body :img-src="item.img">
+                        <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                        <p class="text-muted ml-4">{{ item.release_date }}</p>
+                      </b-card>
+                    </b-modal>
+
+                    <div v-b-modal="'modal-ai-2' + index" class="d-flex">
                       <div>
                         <b-img-lazy
                           class="custom-latest-image"
@@ -194,34 +258,50 @@
                     <hr class="m-0 p-0" />
                   </b-list-group-item>
                 </b-list-group>
-              </nuxt-link>
+                <!-- </nuxt-link> -->
+              </div>
             </div>
-          </div>
-        </b-col>
-        <!-- Academic End -->
+          </b-col>
+          <!-- Academic End -->
 
-        <!-- Photo Info Start -->
-        <b-col cols="12" sm="6" md="4" lg="4" xl="4">
-          <div class="ml-md-4 ml-lg-4 ml-xl-4">
-            <div class="d-flex " style="margin-bottom:10px;">
-              <b-img
-                style="background-color: #343a40; padding:5px"
-                height="43"
-                width="43"
-                class="rounded"
-                :src="require('~/static/icons/ai.png')"
-              >
-              </b-img>
-              <h5 style="color:#222;" class="ml-2 mt-2">
-                <strong>Photo</strong>
-              </h5>
-            </div>
-            <nuxt-link to="/next/Photo">
+          <!-- Photo Info Start -->
+          <b-col cols="12" sm="6" md="4" lg="4" xl="4">
+            <div class="ml-md-4 ml-lg-4 ml-xl-4">
+              <div class="d-flex " style="margin-bottom:10px;">
+                <div>
+                  <nuxt-link to="/next/Photo">
+                    <b-img
+                      style="background-color: #343a40; padding:5px;"
+                      height="43"
+                      width="43"
+                      class="rounded"
+                      :src="require('~/static/icons/ai.png')"
+                    >
+                    </b-img>
+                  </nuxt-link>
+                </div>
+                <div>
+                  <nuxt-link to="/next/Photo">
+                    <h5 style="color:#222;" class="ml-2 mt-2">
+                      <strong>Photo</strong>
+                    </h5>
+                  </nuxt-link>
+                </div>
+              </div>
+              <!-- </div> -->
+
               <b-card
+                v-b-modal.modal-center
                 v-for="(item, index) in photo.slice(0, 1)"
                 :key="index"
                 no-body
               >
+                <b-modal ok-only size="xl" id="modal-center">
+                  <b-card no-body :img-src="item.img">
+                    <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                    <p class="text-muted ml-4">{{ item.release_date }}</p>
+                  </b-card>
+                </b-modal>
                 <b-card-img
                   :src="item.img"
                   alt="Card image"
@@ -235,17 +315,27 @@
                   <strong>{{ item.title.slice(0, 30) + ".." }}</strong>
                 </h5>
               </b-card>
-            </nuxt-link>
-            <div class="mt-4">
-              <div>
-                <b-list-group style="background-color:#ffff">
-                  <nuxt-link to="/next/Photo">
+
+              <div class="mt-4">
+                <div>
+                  <b-list-group style="background-color:#ffff">
+                    <!-- <nuxt-link to="/next/Photo"> -->
                     <b-list-group-item
                       style="border:none;margin-bottom:23px;"
                       v-for="(item, index) in photo.slice(1, 4)"
                       :key="index"
                     >
-                      <div class="d-flex">
+                      <b-modal
+                        hide-footer
+                        size="xl"
+                        :id="'modal-photo' + index"
+                      >
+                        <b-card no-body :img-src="item.img">
+                          <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                          <p class="text-muted ml-4">{{ item.release_date }}</p>
+                        </b-card>
+                      </b-modal>
+                      <div class="d-flex" v-b-modal="'modal-photo' + index">
                         <div>
                           <b-img-lazy
                             class="custom-latest-image"
@@ -260,122 +350,99 @@
                       </div>
                       <hr class="m-0 p-0" />
                     </b-list-group-item>
-                  </nuxt-link>
-                </b-list-group>
+                    <!-- </nuxt-link> -->
+                  </b-list-group>
+                </div>
               </div>
             </div>
-          </div>
-        </b-col>
-        <!-- Photo Info End -->
-      </b-row>
-      <b-row class="mt-4">
-        <!-- Class note Start -->
-        <b-col cols="12">
-          <div class="d-flex " style="margin-bottom:10px;">
-            <b-img
-              style="background-color: #343a40; padding:5px"
-              height="43"
-              width="43"
-              class="rounded"
-              :src="require('~/static/icons/v.png')"
-            >
-            </b-img>
-            <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Class Note</strong>
-            </h5>
-          </div>
-        </b-col>
-        <b-col
-          class="mb-4"
-          v-for="i in 3"
-          :key="i"
-          cols="12"
-          sm="6"
-          md="4"
-          lg="4"
-          xl="4"
-        >
-          <nuxt-link to="/next/Class Note">
+          </b-col>
+          <!-- Photo Info End -->
+        </b-row>
+        <b-row class="mt-4">
+          <!-- Class note Start -->
+          <b-col cols="12">
+            <div class="d-flex " style="margin-bottom:10px;">
+              <div>
+                <nuxt-link to="/next/Class Note">
+                  <b-img
+                    style="background-color: #343a40; padding:5px"
+                    height="43"
+                    width="43"
+                    class="rounded"
+                    :src="require('~/static/icons/v.png')"
+                  >
+                  </b-img
+                ></nuxt-link>
+              </div>
+              <div>
+                <nuxt-link to="/next/Class Note">
+                  <h5 style="color:#222;" class="ml-2 mt-2">
+                    <strong>Class Note</strong>
+                  </h5></nuxt-link
+                >
+              </div>
+            </div>
+          </b-col>
+          <b-col
+            class="mb-4"
+            v-for="(item, index) in classNote"
+            :key="index"
+            cols="12"
+            sm="6"
+            md="4"
+            lg="4"
+            xl="4"
+          >
+            <b-modal hide-footer size="xl" :id="'modal-classNote' + index">
+              <b-card no-body :img-src="item.note_img">
+                <p class="text-muted ml-4">{{ item.release_date }}</p>
+                <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                <p class="ml-4">{{ item.details }}</p>
+                <div class="ml-4">File: {{ item.document }}</div>
+              </b-card>
+            </b-modal>
+
             <b-card no-body>
               <b-card-img
-                src="https://placekitten.com/1000/300"
+                v-b-modal="'modal-classNote' + index"
+                :src="item.note_img"
                 alt="Card image"
                 height="170"
               ></b-card-img>
               <p class="text-muted mt-1 ml-3" style="font-size:15px;">
-                12-11-2101
+                {{ item.release_date }}
               </p>
               <h5 class="ml-3">
-                <strong
-                  >Game Changing Virtual Reality Console Hits the Market</strong
-                >
+                <strong>{{ item.title.slice(0, 30) + ".." }}</strong>
               </h5>
             </b-card>
-          </nuxt-link>
-        </b-col>
-        <!-- Class Video End -->
-
-        <!-- Contact -->
-        <!-- <b-col
-          offset-md="4"
-          offset-lg="4"
-          offset-xl="4"
-          cols="12"
-          sm="6"
-          md="4"
-          lg="4"
-          xl="4"
-        >
-          <div class="d-flex " style="margin-bottom:10px;">
-            <b-img
-              style="background-color: #343a40; padding:5px"
-              height="43"
-              width="43"
-              class="rounded"
-              :src="require('~/static/icons/c.png')"
-            >
-            </b-img>
-            <h5 style="color:#222;" class="ml-2 mt-2">
-              <strong>Contact</strong>
-            </h5>
-          </div>
-
-          <b-card no-body>
-            <b-card-img
-              src="https://placekitten.com/1000/300"
-              alt="Card image"
-              height="170"
-            ></b-card-img>
-            <p class="text-muted mt-3" style="font-size:16px;">12-11-2101</p>
-            <h5 class="">
-              <strong
-                >Game Changing Virtual Reality Console Hits the Market</strong
-              >
-            </h5>
-          </b-card>
-        </b-col> -->
-        <!-- Contact End -->
-      </b-row>
-    </b-container>
+            <!-- </nuxt-link> -->
+          </b-col>
+        </b-row>
+      </b-container>
+      <!-- Home Page End -->
+    </div>
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar";
-import VideoPlayer from "@/components/VideoPlayer";
+import MyVideoPlayer from "@/components/MyVideoPlayer";
 import Carousel from "@/components/Carousel";
 
 export default {
   components: {
     NavBar,
     Carousel,
-    VideoPlayer
+    MyVideoPlayer
   },
   data() {
     return {
       noticeBoard: [],
       photo: [],
-      academicInfo: []
+      academicInfo: [],
+      classNote: [],
+      searched: false
     };
   },
   async fetch() {
@@ -389,20 +456,18 @@ export default {
       .$get(process.env.baseUrl + "/photo_views_home")
       .then(posts => (this.photo = posts.results));
 
+    // academic Info
     await this.$axios
       .$get(process.env.baseUrl + "/Academic_Infos_views_home")
       .then(posts => (this.academicInfo = posts.results));
+    // class note
+    await this.$axios
+      .$get(process.env.homeCn)
+      .then(posts => (this.classNote = posts.results));
   }
 };
 </script>
 <style scoped>
-/* .side-panel {
-  top: 0;
-  position: sticky;
-  position: -webkit-sticky;
-  z-index: 20;
-  border-right: solid 0.5px rgba(0, 0, 0, 0.2);
-} */
 @media (min-width: 576px) {
   .photo-section-two {
     margin-top: 53px;
@@ -415,7 +480,7 @@ export default {
 }
 .latest-home-card {
   background: #ffff;
-  box-shadow: 0 5px 0 -0.8rem rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 5px 0 -0.8rem rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.05); */
   border-radius: 5px;
 }
 .custom-latest-title {

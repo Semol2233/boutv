@@ -1,5 +1,4 @@
-import 'videojs-flash'
-import 'videojs-contrib-hls.js/src/videojs.hlsjs'
-import Vue from 'vue'
-import VueVideoPlayer from 'vue-video-player'
-Vue.use(VueVideoPlayer)
+// import Vue from 'vue'
+// import { videoPlayer } from 'vue-videojs7'
+
+// Vue.use(videoPlayer)

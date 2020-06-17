@@ -30,7 +30,11 @@
                 href="#"
                 >Notice Board</b-nav-item
               >
-              <b-nav-item class="nav-item-two mr-2 p-1" active href="#"
+              <b-nav-item
+                to="/live-class"
+                class="nav-item-two mr-2 p-1"
+                active
+                href="#"
                 >Live Class</b-nav-item
               >
               <b-nav-item
@@ -54,7 +58,10 @@
                 href="#"
                 >Class Note</b-nav-item
               >
-              <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
+              <b-nav-item
+                class="nav-item-five mr-2 p-1"
+                active
+                href="https://www.bou.edu.bd/"
                 >Contact</b-nav-item
               >
             </b-navbar-nav>
@@ -125,7 +132,10 @@
               href="#"
               >Class Note</b-nav-item
             >
-            <b-nav-item class="nav-item-five mr-2 p-1" active href="#"
+            <b-nav-item
+              class="nav-item-five mr-2 p-1"
+              active
+              href="https://www.bou.edu.bd/"
               >Contact</b-nav-item
             >
           </b-navbar-nav>
@@ -136,8 +146,11 @@
                 type="text"
                 placeholder="Search on Voutv..."
                 class="input-search"
+                v-model="keyword"
               ></b-input>
-              <button type="submit" class="searchButton">Search</button>
+              <button type="button" @click="search" class="searchButton">
+                Search
+              </button>
             </div>
           </div>
           <!-- Right aligned nav items -->
@@ -160,7 +173,6 @@
         </b-collapse>
       </b-container>
     </b-navbar>
-    <!-- <div class="content"></div> -->
   </div>
 </template>
 
@@ -169,8 +181,7 @@ export default {
   data() {
     return {
       showInputbar: false,
-      fixed: null,
-      sticky: true
+      keyword: ""
     };
   },
   methods: {
@@ -180,26 +191,12 @@ export default {
     showNavItem() {
       this.showInputbar = false;
     },
-    scroll() {
-      window.onscroll = () => {
-        let header = document.getElementById("my-nav");
-        var sticky = header.offsetTop;
-
-        if (window.pageYOffset > sticky) {
-          // this.fixed = "top";
-          // this.sticky = false;
-          // header.classList.add("sticky");
-        } else {
-          // this.sticky = true;
-          // header.classList.add("sticky-animation");
-          // this.fixed = null;
-          // header.classList.remove("sticky");
-        }
-      };
+    search() {
+      if (this.keyword != "") {
+        this.$store.dispatch("SetSearchedKeyword", this.keyword);
+        this.$router.push("/search");
+      }
     }
-  },
-  mounted() {
-    // this.scroll();
   }
 };
 </script>
@@ -211,45 +208,12 @@ export default {
     font-size: 15px;
   }
 }
-/* #my-nav {
-  overflow: visible;
-} */
 .header {
   position: relative;
 }
 .logo-top {
-  /* padding: 10px; */
   text-align: center;
 }
-.sticky {
-  z-index: 10;
-  overflow: visible;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-.sticky + .content {
-  padding-top: 60px;
-}
-.sticky-animation {
-  /* top: 0;
-  left: 0; */
-  animation: smoothScroll 1s forwards;
-}
-@keyframes smoothScroll {
-  0% {
-    transform: translateY(80px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate {
-  animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 3s; /* don't forget to set a duration! */
-}
-
 .search {
   animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 1s; /* don't forget to set a duration! */
@@ -304,18 +268,6 @@ export default {
   box-shadow: 0 5px 0.9rem -0.8rem rgba(0, 0, 0, 0.8),
     0 0 0 1px rgba(0, 0, 0, 0.05);
 }
-/* @media (max-width: 785px) {
-  .header {
-    margin-bottom: 110px !important;
-  }
-}
-
-@media (max-width: 576px) {
-   .header { 
-   margin-bottom: 80px !important; 
-   } 
-} */
-
 @media (min-width: 576px) and (min-width: 768px) and (min-width: 992px) and (min-width: 1200px) {
   .my-custom-nav {
     height: 85px;
@@ -353,12 +305,6 @@ export default {
 }
 
 @media (min-width: 786px) {
-  /* .my-custom-nav {
-    height: 100px;
-  } */
-  /* .header {
-    margin-bottom: 70px !important;
-  } */
   .nav-item-one :hover {
     border-bottom: 3px solid rgb(77, 178, 236);
     padding-bottom: 3px;
