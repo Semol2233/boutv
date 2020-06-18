@@ -31,7 +31,10 @@
       <Carousel />
       <b-container v-if="$fetchState.pending">
         <div class="mt-4 text-center">
-          <b-spinner  style="width: 3rem; height: 3rem;" label="Loading..."></b-spinner>
+          <b-spinner
+            style="width: 3rem; height: 3rem;"
+            label="Loading..."
+          ></b-spinner>
         </div>
       </b-container>
       <!-- Home Page Start -->
@@ -135,7 +138,7 @@
                       img-height="180"
                     >
                       <b-card-text text-tag="h5" style="margin-top:90px;">
-                        {{ item.title }}
+                        {{ item.title.slice(0, 40) + ".." }}
                       </b-card-text>
                     </b-card>
                   </div>
@@ -157,7 +160,9 @@
                       <p class="text-muted ml-4 mt-2">
                         {{ item.release_date }}
                       </p>
-                      <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+                      <h3 class="ml-4 mt-2">
+                        {{ item.title }}
+                      </h3>
                       <div class="ml-4 mt-1" v-html="item.details"></div>
                       <div class="ml-4">
                         File:
@@ -181,7 +186,7 @@
                       img-height="174"
                     >
                       <b-card-text text-tag="h5" style="margin-top:80px;">
-                        {{ item.title }}
+                        {{ item.title.slice(0, 33) + ".." }}
                       </b-card-text>
                     </b-card>
                     <!-- </nuxt-link> -->
@@ -225,7 +230,7 @@
                 <b-card no-body :img-src="item.img">
                   <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
                   <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                  <p class="ml-4">{{ item.details }}</p>
+                  <div class="ml-4" v-html="item.details"></div>
                 </b-card>
               </b-modal>
 
@@ -263,7 +268,7 @@
                           {{ item.release_date }}
                         </p>
                         <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                        <p class="ml-4">{{ item.details }}</p>
+                        <div class="ml-4" v-html="item.details"></div>
                       </b-card>
                     </b-modal>
 
@@ -321,10 +326,10 @@
                 :key="index"
                 no-body
               >
-                <b-modal ok-only size="xl" id="modal-center">
+                <b-modal hide-footer size="xl" id="modal-center">
                   <b-card no-body :img-src="item.img">
+                    <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
                     <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                    <p class="text-muted ml-4">{{ item.release_date }}</p>
                   </b-card>
                 </b-modal>
                 <b-card-img
@@ -356,8 +361,10 @@
                         :id="'modal-photo' + index"
                       >
                         <b-card no-body :img-src="item.img">
+                          <p class="text-muted mt-2 ml-4">
+                            {{ item.release_date }}
+                          </p>
                           <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                          <p class="text-muted ml-4">{{ item.release_date }}</p>
                         </b-card>
                       </b-modal>
                       <div class="d-flex" v-b-modal="'modal-photo' + index">
@@ -420,9 +427,9 @@
           >
             <b-modal hide-footer size="xl" :id="'modal-classNote' + index">
               <b-card no-body :img-src="item.note_img">
-                <p class="text-muted ml-4">{{ item.release_date }}</p>
+                <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
                 <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                <p class="ml-4">{{ item.details }}</p>
+                <div v-html="item.details" class="ml-4"></div>
                 <div class="ml-4">
                   File:
                   <a :href="item.Pdf_file" style="color:blue;"

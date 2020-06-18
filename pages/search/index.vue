@@ -16,7 +16,24 @@
     <b-container v-else>
       <b-row>
         <b-col
-          v-for="(item, index) in searchedItems.results"
+          v-if="searchKeyword.results == ''"
+          cols="12"
+          md="12"
+          sm="12"
+          lg="12"
+          class="text-center mt-4 mb-4"
+        >
+          <h5>Your search - {{ keyword }} - did not match any documents.</h5>
+          <p>Suggestions:</p>
+          <ul>
+            <li>Make sure that all words are spelled correctly.</li>
+            <li>Try different keywords.</li>
+            <li>Try more general keywords.</li>
+          </ul>
+        </b-col>
+        <b-col
+          v-else
+          v-for="(item, index) in searchKeyword.results"
           :key="index"
           class="p-1
           mt-3
@@ -27,15 +44,14 @@
           lg="3"
           xl="3"
         >
-          <!-- <div v-if="showModal"> -->
           <b-modal hide-footer size="xl" :id="'modal-photo' + index">
             <b-card no-body :img-src="item.img">
               <p class="ml-4 text-muted mt-2">{{ item.release_date }}</p>
               <h3 class="ml-4">{{ item.title }}</h3>
-              <p class="ml-4">{{ item.details }}</p>
+              <div v-html="item.details" class="ml-4"></div>
             </b-card>
           </b-modal>
-          <!-- </div> -->
+
           <CommonCard
             v-b-modal="'modal-photo' + index"
             :imgSrc="item.img"
@@ -85,26 +101,27 @@ export default {
     };
   },
   async fetch() {
-    await this.$axios
-      .$get(process.env.search + this.searchKeyword)
-      .then(posts => (this.searchedItems = posts));
+    // await this.$axios
+    //   .$get(process.env.search + this.searchKeyword)
+    //   .then(posts => (this.searchedItems = posts));
   },
   computed: mapState({
-    searchKeyword: state => state.searchKeyword
+    searchKeyword: state => state.searchKeyword,
+    keyword: state => state.keyword
   }),
   methods: {
-    previous() {
-      if (this.searchedItems.previous != null) {
-        this.$axios
-          .$get(this.searchedItems.previous)
-          .then(posts => (this.searchedItems = posts));
+    async previous() {
+      if (this.searchKeyword.previous != null) {
+        await this.$axios
+          .$get(this.searchKeyword.previous)
+          .then(posts => this.$store.dispatch("SetSearchedKeyword", posts));
       }
     },
-    next() {
-      if (this.searchedItems.next != null) {
+    async next() {
+      if (this.searchKeyword.next != null) {
         this.$axios
-          .$get(this.searchedItems.next)
-          .then(posts => (this.searchedItems = posts));
+          .$get(this.searchKeyword.next)
+          .then(posts => this.$store.dispatch("SetSearchedKeyword", posts));
       } else {
         alert("No More Data");
       }
