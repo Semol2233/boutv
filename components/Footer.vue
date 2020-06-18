@@ -34,7 +34,7 @@
           class="mb- mt-4 text-center"
         >
           <p>
-            ©2020 BouTv.All Rights Reserved.Developed by: NUXTIT
+            ©2020 BouTv.All Rights Reserved.Developed by: <a href="http://nuxtit.com/">NUXTIT</a>
           </p>
         </b-col>
       </b-row>

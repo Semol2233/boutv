@@ -22,7 +22,7 @@
           xl="12"
           class="text-center mt-4 mb-4"
         >
-          <div style="margin-top:50px; margin-bottom:250px;">
+          <div style="margin-top:50px; margin-bottom:268px;">
             <h5>Your search - {{ keyword }} - did not match any documents.</h5>
             <p>Suggestions:</p>
             <ul>
