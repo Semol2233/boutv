@@ -1,10 +1,8 @@
 <template>
-  <div>
+  <div class="search-page">
     <div class="side-panel">
       <NavBar />
     </div>
-
-    <!-- <div class="mt-4"> -->
     <b-container v-if="$fetchState.pending">
       <div class="mt-4 text-center">
         <b-spinner
@@ -21,18 +19,21 @@
           md="12"
           sm="12"
           lg="12"
+          xl="12"
           class="text-center mt-4 mb-4"
         >
-          <h5>Your search - {{ keyword }} - did not match any documents.</h5>
-          <p>Suggestions:</p>
-          <ul>
-            <li>Make sure that all words are spelled correctly.</li>
-            <li>Try different keywords.</li>
-            <li>Try more general keywords.</li>
-          </ul>
+          <div style="margin-top:50px; margin-bottom:250px;">
+            <h5>Your search - {{ keyword }} - did not match any documents.</h5>
+            <p>Suggestions:</p>
+            <ul>
+              <li>Make sure that all words are spelled correctly.</li>
+              <li>Try different keywords.</li>
+              <li>Try more general keywords.</li>
+            </ul>
+          </div>
         </b-col>
         <b-col
-          v-else
+          v-else-if="searchKeyword.results != ''"
           v-for="(item, index) in searchKeyword.results"
           :key="index"
           class="p-1
@@ -82,18 +83,23 @@
         </b-button-group>
       </div>
     </b-container>
-    <!-- </div> -->
+
+    <div class="custom-footer-class">
+      <Footer />
+    </div>
   </div>
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
 import NavBar from "@/components/NavBar.vue";
 import CommonCard from "@/components/CommonCard.vue";
 import { mapState } from "vuex";
 export default {
   components: {
     NavBar,
-    CommonCard
+    CommonCard,
+    Footer
   },
   data() {
     return {
@@ -130,5 +136,13 @@ export default {
 };
 </script>
 
-<style>
+<style  scoped>
+.search-page {
+}
+.custom-footer-class {
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
 </style>

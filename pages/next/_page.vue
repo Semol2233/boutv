@@ -66,7 +66,7 @@
             <b-card v-else-if="academicInfo" no-body :img-src="item.img">
               <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
               <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-              <div class="ml-4" v-html=" item.details"></div>
+              <div class="ml-4" v-html="item.details"></div>
             </b-card>
 
             <b-card v-else no-body :img-src="item.img">
@@ -114,13 +114,14 @@
         </b-button-group>
       </div>
     </b-container>
+    <Footer />
   </div>
 </template>
 
 <script>
 import CommonCard from "@/components/CommonCard.vue";
 import Carousel from "@/components/Carousel.vue";
-
+import Footer from "@/components/Footer.vue";
 import NavBar from "@/components/NavBar.vue";
 export default {
   data() {
@@ -137,7 +138,8 @@ export default {
   components: {
     NavBar,
     Carousel,
-    CommonCard
+    CommonCard,
+    Footer
   },
   methods: {
     previous() {

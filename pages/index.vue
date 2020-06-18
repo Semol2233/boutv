@@ -28,7 +28,9 @@
     <!-- navbar end -->
 
     <div>
+      <!-- <div v-for="i in coverimg" :key="i"> -->
       <Carousel />
+      <!-- </div> -->
       <b-container v-if="$fetchState.pending">
         <div class="mt-4 text-center">
           <b-spinner
@@ -224,7 +226,7 @@
             <div
               v-for="(item, index) in academicInfo.slice(0, 2)"
               :key="index"
-              class="latest-home-card p-3"
+              class="latest-home-card pt-3 pr-3 pb-3 "
             >
               <b-modal hide-footer size="xl" :id="'modal-ai-1' + index">
                 <b-card no-body :img-src="item.img">
@@ -459,10 +461,12 @@
       </b-container>
       <!-- Home Page End -->
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
 import NavBar from "@/components/NavBar";
 import MyVideoPlayer from "@/components/MyVideoPlayer";
 import Carousel from "@/components/Carousel";
@@ -471,7 +475,8 @@ export default {
   components: {
     NavBar,
     Carousel,
-    MyVideoPlayer
+    MyVideoPlayer,
+    Footer
   },
   data() {
     return {
@@ -479,7 +484,8 @@ export default {
       photo: [],
       academicInfo: [],
       classNote: [],
-      searched: false
+      searched: false,
+      coverimg: []
     };
   },
   async fetch() {
@@ -501,6 +507,9 @@ export default {
     await this.$axios
       .$get(process.env.homeCn)
       .then(posts => (this.classNote = posts.results));
+    // await this.$axios
+    //   .$get(process.env.coverImg)
+    //   .then(posts => (this.coverimg = posts.results));
   }
 };
 </script>

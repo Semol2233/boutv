@@ -14,26 +14,13 @@
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
       >
-        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
-          <!-- <div class="my-carousel-caption-up">
-            {{ date || time }}
-          </div>
-          <b-img
-            src="~/static/bn3.JPG"
-            class="my-carousel-caption-down"
-          ></b-img> -->
-        </b-carousel-slide>
-        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
-          <!-- <b-img
-            src="~/static/bn3.JPG"
-            class="my-carousel-caption-down"
-          ></b-img> -->
-        </b-carousel-slide>
-        <b-carousel-slide img-height="317" img-blank img-alt="Blank image">
-          <!-- <b-img
-            src="~/static/bn3.JPG"
-            class="my-carousel-caption-down"
-          ></b-img> -->
+        <b-carousel-slide
+          v-for="(i, index) in coverimg"
+          :key="index"
+          :img-src="i.coverimg"
+          img-height="317"
+          img-alt="Blank image"
+        >
         </b-carousel-slide>
       </b-carousel>
     </b-container>
@@ -43,12 +30,19 @@
 <script>
 export default {
   name: "Carousel",
+
+  mounted() {
+    this.$axios
+      .$get(process.env.coverImg)
+      .then(posts => (this.coverimg = posts.results));
+  },
   data() {
     return {
       slide: 0,
       sliding: null,
       date: "",
-      time: ""
+      time: "",
+      coverimg: []
     };
   },
   methods: {
@@ -75,9 +69,6 @@ export default {
 
       console.log(currentDateWithFormat);
     }
-  },
-  mounted() {
-    // this.callFunction();
   }
 };
 </script>
