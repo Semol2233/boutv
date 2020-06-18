@@ -4,7 +4,15 @@
       <NavBar />
     </div>
     <Carousel />
-    <b-container>
+    <b-container v-if="$fetchState.pending">
+      <div class="mt-4 text-center">
+        <b-spinner
+          style="width: 3rem; height: 3rem;"
+          label="Loading..."
+        ></b-spinner>
+      </div>
+    </b-container>
+    <b-container v-else>
       <b-row no-gutters>
         <b-col class="mt-4 " cols="12" sm="12" md="12" lg="12" xl="12">
           <b-card class="shadow-sm">
@@ -29,9 +37,31 @@
               <p class="ml-4 text-muted mt-2">{{ item.release_date }}</p>
               <h3 class="ml-4">{{ item.title }}</h3>
               <p class="ml-4">{{ item.details }}</p>
-              <div class="ml-4">File : {{ item.document }}</div>
+              <div class="ml-4">
+                File:
+                <a :href="item.Pdf_file" style="color:blue;"
+                  >Download Document</a
+                >
+              </div>
             </b-card>
-
+            <b-card v-else-if="noticeBoard" no-body :img-src="item.img">
+              <p class="text-muted ml-4 mt-2">
+                {{ item.release_date }}
+              </p>
+              <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+              <div class="ml-4 mt-1" v-html="item.details"></div>
+              <div class="ml-4">
+                File:
+                <a :href="item.Pdf_file" style="color:blue;"
+                  >Download Document</a
+                >
+              </div>
+            </b-card>
+            <b-card v-if="academicInfo" no-body :img-src="item.img">
+              <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
+              <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+              <p class="ml-4">{{ item.details }}</p>
+            </b-card>
             <b-card v-else no-body :img-src="item.img">
               <h3 class="ml-4 mt-2">{{ item.title }}</h3>
               <p class="text-muted ml-4">{{ item.release_date }}</p>

@@ -5,7 +5,15 @@
     </div>
 
     <!-- <div class="mt-4"> -->
-    <b-container>
+    <b-container v-if="$fetchState.pending">
+      <div class="mt-4 text-center">
+        <b-spinner
+          style="width: 3rem; height: 3rem;"
+          label="Loading..."
+        ></b-spinner>
+      </div>
+    </b-container>
+    <b-container v-else>
       <b-row>
         <b-col
           v-for="(item, index) in searchedItems.results"
