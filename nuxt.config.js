@@ -12,7 +12,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'png', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
@@ -71,6 +71,7 @@ export default {
   env: {
     baseUrl: process.env.BASE_URL || `http://cdn.boutv.live/sdvcsdcdcsdfder43543wrfwefcsfsdvcsdcdcsdfder43543wrfwefcsf`,
     homeCn: 'http://cdn.boutv.live/sdvcsdcdcsdfder43543wrfwefcsf',
-    search: 'http://cdn.boutv.live/sdvcsdcdcsdfder43543wrfwefcsfsdvcsdcdcsdfder43543wrfwefcsf/serach?search='
+    search: 'http://cdn.boutv.live/sdvcsdcdcsdfder43543wrfwefcsfsdvcsdcdcsdfder43543wrfwefcsf/serach?search=',
+    coverImg: 'http://cdn.boutv.live/sdvcsdcdcsdfder43543wrfwefcsfsdvcsdcdcsdfder43543wrfwefcsf/coverimg'
   }
 }

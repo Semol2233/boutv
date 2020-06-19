@@ -35,10 +35,12 @@
         </b-col>
       </b-row>
     </b-container>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
 import Carousel from "@/components/Carousel.vue";
 import NavBar from "@/components/NavBar.vue";
 // import videoPlayer from "vue-videojs7";
@@ -63,7 +65,8 @@ export default {
   // },
   components: {
     NavBar,
-    Carousel
+    Carousel,
+    Footer
     // videoPlayer
   }
   // methods: {

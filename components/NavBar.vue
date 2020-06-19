@@ -142,6 +142,7 @@
           <div v-else class="nav-s-block">
             <div class="search" id="searchb" style="display: block;">
               <b-input
+                @keyup.enter="search"
                 autocomplete="on"
                 type="text"
                 placeholder="Search on Voutv..."
@@ -191,11 +192,15 @@ export default {
     showNavItem() {
       this.showInputbar = false;
     },
-    search() {
-      if (this.keyword != "") {
-        this.$store.dispatch("SetSearchedKeyword", this.keyword);
-        this.$router.push("/search");
-      }
+    async search() {
+      // if (this.keyword != "") {
+      await this.$axios
+        .$get(process.env.search + this.keyword)
+        .then(posts => this.$store.dispatch("SetSearchedKeyword", posts));
+
+      this.$store.dispatch("SetKeyword", this.keyword);
+      this.$router.push("/search");
+      // }
     }
   }
 };

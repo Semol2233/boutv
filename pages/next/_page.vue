@@ -4,7 +4,15 @@
       <NavBar />
     </div>
     <Carousel />
-    <b-container>
+    <b-container v-if="$fetchState.pending">
+      <div class="mt-4 text-center">
+        <b-spinner
+          style="width: 3rem; height: 3rem;"
+          label="Loading..."
+        ></b-spinner>
+      </div>
+    </b-container>
+    <b-container v-else>
       <b-row no-gutters>
         <b-col class="mt-4 " cols="12" sm="12" md="12" lg="12" xl="12">
           <b-card class="shadow-sm">
@@ -25,20 +33,58 @@
         >
           <!-- <div v-if="showModal"> -->
           <b-modal hide-footer size="xl" :id="'modal-photo' + index">
+            <!-- class Note -->
             <b-card v-if="classNote" no-body :img-src="item.note_img">
               <p class="ml-4 text-muted mt-2">{{ item.release_date }}</p>
               <h3 class="ml-4">{{ item.title }}</h3>
-              <p class="ml-4">{{ item.details }}</p>
-              <div class="ml-4">File : {{ item.document }}</div>
+              <div class="ml-4" v-html="item.details"></div>
+              <div class="ml-4">
+                File:
+                <a :href="item.Pdf_file" style="color:blue;"
+                  >Download Document</a
+                >
+              </div>
+            </b-card>
+
+            <!-- notice board -->
+
+            <b-card v-else-if="noticeBoard" no-body :img-src="item.img">
+              <p class="text-muted ml-4 mt-2">
+                {{ item.release_date }}
+              </p>
+              <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+              <div class="ml-4 mt-1" v-html="item.details"></div>
+              <div class="ml-4">
+                File:
+                <a :href="item.Pdf_file" style="color:blue;"
+                  >Download Document</a
+                >
+              </div>
+            </b-card>
+
+            <!-- academic info -->
+            <b-card v-else-if="academicInfo" no-body :img-src="item.img">
+              <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
+              <h3 class="ml-4 mt-2">{{ item.title }}</h3>
+              <div class="ml-4" v-html="item.details"></div>
             </b-card>
 
             <b-card v-else no-body :img-src="item.img">
-              <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-              <p class="text-muted ml-4">{{ item.release_date }}</p>
-            </b-card>
+              <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
+              <h3 class="ml-4 mt-2">{{ item.title }}</h3></b-card
+            >
           </b-modal>
           <!-- </div> -->
           <CommonCard
+            v-if="classNote"
+            v-b-modal="'modal-photo' + index"
+            :imgSrc="item.note_img"
+            :title="item.title"
+            :relaseDate="item.release_date"
+          />
+
+          <CommonCard
+            v-else
             v-b-modal="'modal-photo' + index"
             :imgSrc="item.img"
             :title="item.title"
@@ -68,13 +114,14 @@
         </b-button-group>
       </div>
     </b-container>
+    <Footer />
   </div>
 </template>
 
 <script>
 import CommonCard from "@/components/CommonCard.vue";
 import Carousel from "@/components/Carousel.vue";
-
+import Footer from "@/components/Footer.vue";
 import NavBar from "@/components/NavBar.vue";
 export default {
   data() {
@@ -91,7 +138,8 @@ export default {
   components: {
     NavBar,
     Carousel,
-    CommonCard
+    CommonCard,
+    Footer
   },
   methods: {
     previous() {

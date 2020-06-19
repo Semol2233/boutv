@@ -28,10 +28,20 @@
     <!-- navbar end -->
 
     <div>
+      <!-- <div v-for="i in coverimg" :key="i"> -->
       <Carousel />
+      <!-- </div> -->
+      <b-container v-if="$fetchState.pending">
+        <div class="mt-4 text-center">
+          <b-spinner
+            style="width: 3rem; height: 3rem;"
+            label="Loading..."
+          ></b-spinner>
+        </div>
+      </b-container>
       <!-- Home Page Start -->
-      <b-container>
-        <b-row class="mb-4" no-gutters>
+      <b-container v-else>
+        <b-row class="mb-2" no-gutters>
           <!-- Live Class Start -->
           <b-col class="p-1" cols="12" sm="12" md="6" lg="6" xl="6">
             <div class="d-flex " style="margin-bottom:10px;">
@@ -104,28 +114,35 @@
                 >
                   <b-modal hide-footer size="xl" :id="'modal-nb-1' + index">
                     <b-card no-body :img-src="item.img">
+                      <p class="text-muted ml-4 mt-2">
+                        {{ item.release_date }}
+                      </p>
                       <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                      <p class="text-muted ml-4">{{ item.release_date }}</p>
+                      <div class="ml-4 mt-1" v-html="item.details"></div>
+                      <div class="ml-4">
+                        File:
+                        <a :href="item.Pdf_file" style="color:blue;"
+                          >Download Document</a
+                        >
+                      </div>
                     </b-card>
                   </b-modal>
 
                   <div>
-                    <nuxt-link to="#">
-                      <b-card
-                        v-b-modal="'modal-nb-1' + index"
-                        overlay
-                        :img-src="item.img"
-                        img-alt="Card Image"
-                        text-variant="white"
-                        title=""
-                        sub-title=""
-                        img-height="180"
-                      >
-                        <b-card-text text-tag="h5" style="margin-top:90px;">
-                          {{ item.title }}
-                        </b-card-text>
-                      </b-card>
-                    </nuxt-link>
+                    <b-card
+                      v-b-modal="'modal-nb-1' + index"
+                      overlay
+                      :img-src="item.img"
+                      img-alt="Card Image"
+                      text-variant="white"
+                      title=""
+                      sub-title=""
+                      img-height="180"
+                    >
+                      <b-card-text text-tag="h5" style="margin-top:90px;">
+                        {{ item.title.slice(0, 40) + ".." }}
+                      </b-card-text>
+                    </b-card>
                   </div>
                 </b-col>
               </b-row>
@@ -142,8 +159,19 @@
                 >
                   <b-modal hide-footer size="xl" :id="'modal-nb-2' + index">
                     <b-card no-body :img-src="item.img">
-                      <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                      <p class="text-muted ml-4">{{ item.release_date }}</p>
+                      <p class="text-muted ml-4 mt-2">
+                        {{ item.release_date }}
+                      </p>
+                      <h3 class="ml-4 mt-2">
+                        {{ item.title }}
+                      </h3>
+                      <div class="ml-4 mt-1" v-html="item.details"></div>
+                      <div class="ml-4">
+                        File:
+                        <a :href="item.Pdf_file" style="color:blue;"
+                          >Download Document</a
+                        >
+                      </div>
                     </b-card>
                   </b-modal>
 
@@ -160,7 +188,7 @@
                       img-height="174"
                     >
                       <b-card-text text-tag="h5" style="margin-top:80px;">
-                        {{ item.title }}
+                        {{ item.title.slice(0, 33) + ".." }}
                       </b-card-text>
                     </b-card>
                     <!-- </nuxt-link> -->
@@ -198,12 +226,13 @@
             <div
               v-for="(item, index) in academicInfo.slice(0, 2)"
               :key="index"
-              class="latest-home-card p-3"
+              class="latest-home-card pt-3 pr-3 pb-3 "
             >
               <b-modal hide-footer size="xl" :id="'modal-ai-1' + index">
                 <b-card no-body :img-src="item.img">
+                  <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
                   <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                  <p class="text-muted ml-4">{{ item.release_date }}</p>
+                  <div class="ml-4" v-html="item.details"></div>
                 </b-card>
               </b-modal>
 
@@ -237,8 +266,11 @@
                   >
                     <b-modal hide-footer size="xl" :id="'modal-ai-2' + index">
                       <b-card no-body :img-src="item.img">
+                        <p class="text-muted mt-2 ml-4">
+                          {{ item.release_date }}
+                        </p>
                         <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                        <p class="text-muted ml-4">{{ item.release_date }}</p>
+                        <div class="ml-4" v-html="item.details"></div>
                       </b-card>
                     </b-modal>
 
@@ -296,10 +328,10 @@
                 :key="index"
                 no-body
               >
-                <b-modal ok-only size="xl" id="modal-center">
+                <b-modal hide-footer size="xl" id="modal-center">
                   <b-card no-body :img-src="item.img">
+                    <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
                     <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                    <p class="text-muted ml-4">{{ item.release_date }}</p>
                   </b-card>
                 </b-modal>
                 <b-card-img
@@ -331,8 +363,10 @@
                         :id="'modal-photo' + index"
                       >
                         <b-card no-body :img-src="item.img">
+                          <p class="text-muted mt-2 ml-4">
+                            {{ item.release_date }}
+                          </p>
                           <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                          <p class="text-muted ml-4">{{ item.release_date }}</p>
                         </b-card>
                       </b-modal>
                       <div class="d-flex" v-b-modal="'modal-photo' + index">
@@ -395,10 +429,15 @@
           >
             <b-modal hide-footer size="xl" :id="'modal-classNote' + index">
               <b-card no-body :img-src="item.note_img">
-                <p class="text-muted ml-4">{{ item.release_date }}</p>
+                <p class="text-muted mt-2 ml-4">{{ item.release_date }}</p>
                 <h3 class="ml-4 mt-2">{{ item.title }}</h3>
-                <p class="ml-4">{{ item.details }}</p>
-                <div class="ml-4">File: {{ item.document }}</div>
+                <div v-html="item.details" class="ml-4"></div>
+                <div class="ml-4">
+                  File:
+                  <a :href="item.Pdf_file" style="color:blue;"
+                    >Download Document</a
+                  >
+                </div>
               </b-card>
             </b-modal>
 
@@ -422,10 +461,12 @@
       </b-container>
       <!-- Home Page End -->
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
 import NavBar from "@/components/NavBar";
 import MyVideoPlayer from "@/components/MyVideoPlayer";
 import Carousel from "@/components/Carousel";
@@ -434,7 +475,8 @@ export default {
   components: {
     NavBar,
     Carousel,
-    MyVideoPlayer
+    MyVideoPlayer,
+    Footer
   },
   data() {
     return {
@@ -442,7 +484,8 @@ export default {
       photo: [],
       academicInfo: [],
       classNote: [],
-      searched: false
+      searched: false,
+      coverimg: []
     };
   },
   async fetch() {
@@ -464,6 +507,9 @@ export default {
     await this.$axios
       .$get(process.env.homeCn)
       .then(posts => (this.classNote = posts.results));
+    // await this.$axios
+    //   .$get(process.env.coverImg)
+    //   .then(posts => (this.coverimg = posts.results));
   }
 };
 </script>
