@@ -22,14 +22,6 @@
                   allowfullscreen
                 ></b-embed>
               </div>
-              <!-- <video-player
-                ref="videoPlayer"
-                class="vjs-custom-skin"
-                :options="playerOptions"
-                @play="onPlayerPlay($event)"
-                @ready="onPlayerReady($event)"
-              >
-              </video-player> -->
             </div>
           </client-only>
         </b-col>
@@ -43,82 +35,26 @@
 import Footer from "@/components/Footer.vue";
 import Carousel from "@/components/Carousel.vue";
 import NavBar from "@/components/NavBar.vue";
-// import videoPlayer from "vue-videojs7";
 export default {
-  // data() {
-  //   return {
-  //     playerOptions: {
-  //       autoplay: false,
-  //       controls: true,
-  //       controlBar: {
-  //         timeDivider: false,
-  //         durationDisplay: false
-  //       },
-  //       poster: "../static/logore-1.png"
-  //     }
-  //   };
-  // },
-  // computed: {
-  //   player() {
-  //     return this.$refs.videoPlayer.player;
-  //   }
-  // },
   components: {
     NavBar,
     Carousel,
     Footer
-    // videoPlayer
+  },
+  head() {
+    return {
+      title: "BouTv -Live Class",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Live classes of  Bangladesh open university"
+        }
+      ]
+    };
   }
-  // methods: {
-  //   onPlayerPlay(player) {
-  //     console.log("player play!", player);
-  //   },
-  //   onPlayerReady(player) {
-  //     console.log("player ready!", player);
-  //     this.player.play();
-  //   },
-  //   playVideo: function(source) {
-  //     const video = {
-  //       withCredentials: false,
-  //       type: "application/x-mpegurl",
-  //       src: source
-  //     };
-  //     this.player.reset(); // in IE11 (mode IE10) direct usage of src() when <src> is already set, generated errors,
-  //     this.player.src(video);
-  //     // this.player.load()
-  //     this.player.play();
-  //   }
-  // },
-  // async fetch() {
-  //   await this.$axios
-  //     .$get(process.env.baseUrl + "/livetvfedd")
-  //     .then(posts => (this.videoData = posts.results.live_tv_url));
-  //   this.playVideo(this.videoData);
-  // }
 };
 </script>
 
 <style scoped>
-/* .player {
-  position: absolute !important;
-  width: 100%;
-  height: 100%;
-}
-.vjs-custom-skin {
-  height: 100% !important;
-}
-
-.vjs-custom-skin /deep/ .video-js {
-  height: 84%;
-}
-.title {
-  text-align: center;
-  text-transform: uppercase;
-  word-wrap: break-word;
-  font-size: 30px;
-  line-height: 38px;
-  font-weight: 700;
-  font-family: "Roboto", sans-serif;
-  color: #111;
-} */
 </style>

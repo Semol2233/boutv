@@ -488,6 +488,19 @@ export default {
       coverimg: []
     };
   },
+   head() {
+    return {
+      title: "BouTv -Bangladesh Open University",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Here you can find all the notice,class note,picture,academic info of Bangladesh Open University."
+        }
+      ]
+    };
+  },
   async fetch() {
     // get notice board
     await this.$axios
@@ -507,9 +520,6 @@ export default {
     await this.$axios
       .$get(process.env.homeCn)
       .then(posts => (this.classNote = posts.results));
-    // await this.$axios
-    //   .$get(process.env.coverImg)
-    //   .then(posts => (this.coverimg = posts.results));
   }
 };
 </script>

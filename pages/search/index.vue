@@ -106,10 +106,25 @@ export default {
       searchedItems: []
     };
   },
+  head() {
+    return {
+      title: `BouTv - Bangladesh Open University Search page`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Searching results on BouTv website."
+        }
+      ]
+    };
+  },
   async fetch() {
-    // await this.$axios
-    //   .$get(process.env.search + this.searchKeyword)
-    //   .then(posts => (this.searchedItems = posts));
+    if (this.searchKeyword == "") {
+      await this.$axios
+        .$get(process.env.search)
+        .then(posts => this.$store.dispatch("SetSearchedKeyword", posts));
+    }
+    console.log(this.searchKeyword);
   },
   computed: mapState({
     searchKeyword: state => state.searchKeyword,
@@ -129,7 +144,13 @@ export default {
           .$get(this.searchKeyword.next)
           .then(posts => this.$store.dispatch("SetSearchedKeyword", posts));
       } else {
-        alert("No More Data");
+        this.$bvToast.toast("No more data are available", {
+          title: "Go Back",
+          autoHideDelay: 5000,
+          appendToast: true,
+          toaster: "b-toaster-bottom-center",
+          solid: true
+        });
       }
     }
   }
@@ -137,8 +158,6 @@ export default {
 </script>
 
 <style  scoped>
-.search-page {
-}
 .custom-footer-class {
   /* position: fixed; */
   left: 0;

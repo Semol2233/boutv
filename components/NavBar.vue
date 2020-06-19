@@ -12,6 +12,7 @@
           ><b-img
             style="height:75px; width:203px; margin-left: -40px;"
             :src="require('~/static/logore-1.png')"
+            class="brand-logo"
           ></b-img>
         </b-navbar-brand>
         <b-navbar-toggle target="sidebar-backdrop"></b-navbar-toggle>
@@ -155,7 +156,7 @@
             </div>
           </div>
           <!-- Right aligned nav items -->
-          <b-navbar-nav class=" ml-4">
+          <b-navbar-nav class=" ml-4 icons-search">
             <b-nav-form style="cursor:pointer;">
               <b-icon
                 v-if="!showInputbar"
@@ -193,14 +194,14 @@ export default {
       this.showInputbar = false;
     },
     async search() {
-      // if (this.keyword != "") {
-      await this.$axios
-        .$get(process.env.search + this.keyword)
-        .then(posts => this.$store.dispatch("SetSearchedKeyword", posts));
+      if (this.keyword != "") {
+        await this.$axios
+          .$get(process.env.search + this.keyword)
+          .then(posts => this.$store.dispatch("SetSearchedKeyword", posts));
 
-      this.$store.dispatch("SetKeyword", this.keyword);
-      this.$router.push("/search");
-      // }
+        this.$store.dispatch("SetKeyword", this.keyword);
+        this.$router.push("/search");
+      }
     }
   }
 };
@@ -211,6 +212,17 @@ export default {
 @media (min-width: 576px) and (max-width: 1199px) {
   .nav-items {
     font-size: 15px;
+  }
+  li {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .brand-logo {
+    width: 100px !important;
+  }
+  .icons-search {
+    margin-left: 0px !important;
+    margin-bottom: 7px !important;
   }
 }
 .header {

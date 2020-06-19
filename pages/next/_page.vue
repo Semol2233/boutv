@@ -151,9 +151,27 @@ export default {
       if (this.Data.next != null) {
         this.$axios.$get(this.Data.next).then(posts => (this.Data = posts));
       } else {
-        alert("No More Data");
+        this.$bvToast.toast("No more data are available", {
+          title: "Go Back",
+          autoHideDelay: 5000,
+          appendToast: true,
+          toaster: "b-toaster-bottom-center",
+          solid: true
+        });
       }
     }
+  },
+  head() {
+    return {
+      title: `BouTv - ${this.$route.params.page} page`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: `Here you can find all the ${this.$route.params.page} of Bangladesh Open University.`
+        }
+      ]
+    };
   },
   async fetch() {
     // Notice Board
