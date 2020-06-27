@@ -5,10 +5,8 @@
   "author": "tanzilislam",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "webpack --mode development",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "build": "webpack --progress --colors",
+    "start": "webpack-dev-server --progress --colors"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
